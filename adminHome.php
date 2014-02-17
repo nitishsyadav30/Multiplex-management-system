@@ -291,7 +291,26 @@ include './modules/movies/admin_MenuOptions.php';
                 </tr>
                 <tr>
                     <td>Select Multiplex</td>
-                    <td></td>
+                    <td>
+                        <select>
+                            <option value=""> Click </option>
+                            <?php
+                            $select_multiplex_show = "select from";
+                            $select_mul_result_show = mysql_query($select_multiplex_show, $con);
+                            while ($row_selected = mysql_fetch_array($select_mul_result_show)) {
+                                $mul_id = $row_selected[''];
+
+                                $multiplex = $row_selected[''];
+                                echo "<option id='moption' name='' value=''>$multiplex</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
                 </tr>
             </table>
         </form>
