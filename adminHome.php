@@ -309,7 +309,7 @@ include './modules/movies/admin_MenuOptions.php';
                 </tr>
                 <tr>
                     <td>
-                        
+                      
                     </td>
                 </tr>
             </table>
