@@ -22,7 +22,7 @@ $add_screens_table = "create table " . $prefix . "add_screen(screen_id varchar(6
 $add_shows_table = "create table " . $prefix . "add_show(show_id int(5) primary key,screen_id varchar(6),mul_id varchar(10),show_date datetime,show_time datetime,'foreign key(mul_id) references' .'$prefix'.'add_multiplex(mul_id)','foreign key(screen_id) references' .$prefix.'add_screen(screen_id)')";
 $add_booking_table = "create table " . $prefix . "booking(booking_id int(5),movie_id varchar(5),user-email varchar(30),show_id int(5),screen_id varchar(6),movie_id varchar(5),no_of_seats int(2),seat_no int(2),mov_time datetime,'foreign key(user-email) references' .$prefix. ' register(user-email)','foreign key(movie_id) references' .$prefix. 'admin_movies(movie_id),'foreign key(show_id) references' .$prefix.'add_show(show_id)','foreign key(screen_id) references' .$prefix.'add_screen(screen_id)')";
 
-mysql_select_db($db) or die(mysql_error());
+mysqli_select_db($db_con,$db) or die(mysql_error());
 
 if (mysql_query($register_table))
     {
@@ -30,7 +30,7 @@ if (mysql_query($register_table))
     }
     else 
         {
-          die("table no 1 cannot be created:" .  mysql_error()); 
+          die("Table no 1 cannot be created:" .  mysql_error()); 
        }
 ?>
 
