@@ -23,7 +23,7 @@ $add_shows_table = "create table " . $prefix . "add_show(show_id int(5) primary 
 $add_booking_table = "create table " . $prefix . "booking(booking_id int(5),movie_id varchar(5),user_email varchar(30),show_id int(5),screen_id varchar(6),no_of_seats int(2),seat_no int(2),mov_time datetime,foreign key(user_email) references " ."$prefix". "register(user_email),foreign key(movie_id) references " ."$prefix". "admin_movies(movie_id),foreign key(show_id) references " ."$prefix"."add_show(show_id),foreign key(screen_id) references " ."$prefix"."add_screen(screen_id))";
 
 mysqli_select_db($db_con,'multiplex_management') or die(mysql_error());
-/*
+
 if (mysqli_query($db_con,$register_table))
     {
     echo "table 1 created  <br>";
@@ -67,7 +67,7 @@ if (mysqli_query($db_con,$admin_movies_table))
     else 
         {
           echo "Table no 5 cannot be created:" . mysqli_error($db_con)."\n"; 
-       } */
+       } 
  if (mysqli_query($db_con,$add_booking_table))
     {
     echo "table 6 created  <br>";
