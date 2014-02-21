@@ -1,17 +1,16 @@
 <?php
 
-//include '../config.php';
-//include BASE_PATH .'/includes/connection.php';
+
 $prefix = "multiplex_";
 $db_con = mysqli_connect("localhost", "multiplex", "multiplex123");
 if (mysqli_connect_errno()) {
     echo "Connection error: " . mysqli_connect_error();
 }
-//$db_create = "create database multiplex_management";
+$db_create = "create database multiplex_management";
 
-//if (mysqli_query($db_con, $db_create)) {
- //   echo "Congrats man";
-//}
+if (mysqli_query($db_con, $db_create)) {
+    echo "Congrats man";
+}
 
 $db="multiplex_management";
 
