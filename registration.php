@@ -16,12 +16,6 @@
                 <form method="post" action="includes/registeration_success.php">
                     <table align="center" >
                         <tr>
-                            <td>User Name</td>
-                            <td><input type="text" name="uname" id="ibname" class="input" /></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
                             <td>Email ID</td>
                             <td><input type="text" class="input" name="emailId" /></td>
                             <td></td>
