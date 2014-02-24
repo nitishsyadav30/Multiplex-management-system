@@ -18,7 +18,7 @@
             
             if (isset($_SESSION['CurrentUser'])) {
                            
-                if ($_SESSION['CurrentUser'] == 'admin') {
+                if ($_SESSION['CurrentUser'] == 'admin@multiplex.com') {
                    
                     $wayto = "localhost://Multiplex_System/";
                     echo "<li><a id='item' href='$address/adminHome.php'>Admin Options</a></li>";

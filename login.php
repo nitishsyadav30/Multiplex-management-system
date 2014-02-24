@@ -12,7 +12,7 @@
           function validateLogin()
           {
               var uname=document.forms[login][uname].value;
-              if(uname==null || uname=='')
+              if(email==null || password=='')
               {
                   alert("Enter Username ");
                   return false;
