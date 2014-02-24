@@ -7,7 +7,7 @@
 include './header.php';
 include './includes/connection_final.php';
 
-$user_role=1; //admin 
+$user_role=2; //normal user 
 $emailId = $_POST['emailId'];
 $pass = $_POST['pass'];
 $cpass = $_POST['cpass'];
@@ -18,7 +18,7 @@ $city = $_POST['city'];
 
 if(isset($_SESSION['CurrentUser']))
   {
-    $userrole=2;
+    $user_role=1; //admin
   }
 
 if ($pass != $cpass)

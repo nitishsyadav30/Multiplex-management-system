@@ -1,6 +1,7 @@
 <?php
 //session_start();
 require_once './config.php';
+
 include './includes/connection_final.php';
 include './header.php';
 ?>
@@ -106,7 +107,7 @@ include './header.php';
     });
 </script>
 <script type="text/javascript">
-    $(document).ready(function)() {
+    $(document).ready(function() {
          $("#addShow").hide();
             $("#adminload").hide();
             $("#editMovie").hide();
@@ -334,8 +335,8 @@ include './modules/movies/admin_MenuOptions.php';
     </div>
 
     <div id="addAdmin" style="display: none;"> <!--add admin-->
-        <form method="post" action="includes/registeration_success.php">
-            <table align="center" >
+        <form method="post" action="registration_success.php">
+            <table align="center">
                 <tr>
                     <td>Email ID</td>
                     <td><input type="text" class="input" name="emailId" /></td>

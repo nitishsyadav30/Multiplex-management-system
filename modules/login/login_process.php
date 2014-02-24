@@ -14,22 +14,22 @@
  
  while($row_result= mysqli_fetch_array($queryresult))
       {
-         if($row_result['user_role']=="1")
+         if($row_result['user_role']==1)
              {
-               $_SESSION['CurrentUser']=$email;
+               $_SESSION['CurrentUser']=$row_result['user_role'];
                //include BASE_PATH. '/adminHome.php';
                Header("Location: $address/index.php"); 
               
              }
              else if($row_result['user_email']=="$email" && $row_result['pass']=="$password")
                  {
-                  $_SESSION['CurrentUser']=$email;
+                  $_SESSION['CurrentUser']=$row_result['user_role'];
                
                   Header("Location: $address/index.php"); 
                  }
                  else 
                      { 
-                    
+                     echo 'invalid user';
                       
                       }
                  
