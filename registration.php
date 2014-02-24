@@ -67,11 +67,7 @@
 
 
 
-                        <tr>
-                            <td>Mobile No</td>
-                            <td><input type="text" class="input" name="mobile"/></td>
-                            <td></td>
-                        </tr>
+                        
 
 
                         <tr>

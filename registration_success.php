@@ -7,7 +7,7 @@
 include './header.php';
 include './includes/connection.php';
 
-$uname = $_POST['uname'];
+$userrole=1; //admin 
 $emailId = $_POST['emailId'];
 $pass = $_POST['pass'];
 $cpass = $_POST['cpass'];
@@ -15,7 +15,7 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $gender = $_POST['gender'];
 $city = $_POST['city'];
-$mobile = $_POST['mobile'];
+
 
 if ($pass != $cpass)
     {
@@ -27,7 +27,7 @@ echo "<script >
       die("Passwords Dont match");
 }
 
-$sql="INSERT INTO register VALUES('$uname','$emailId','$pass','$fname','$lname','$gender','$city','$mobile')";
+$sql="INSERT INTO register VALUES('$emailId','$pass','$fname','$lname','$gender','$city')";
 
 if (!mysqli_query($con,$sql))
 {

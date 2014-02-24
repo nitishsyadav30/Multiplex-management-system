@@ -86,20 +86,22 @@ include './header.php';
             $("#demo").hide();
             $("#container").show();
             $("#addMultiplexdiv").show();
+            $("#addShow").hide();
         });
     });
 </script>
 <script type="text/javascript">
    $(document).ready(function(){
-        $("#editMovie").hide();
-        $("#addMultiplexdiv").hide();
-        $("#adminload").hide();
-        $("#editMovie").hide();
-        $("#demo").hide();
+        
         $("#uniqueShow").click(function(){
              $("#container").show();
             $("#addShow").show();
-           
+            $("#adminload").hide();
+           $("#editMovie").hide();
+        $("#addMultiplexdiv").hide();
+      
+        $("#editMovie").hide();
+        $("#demo").hide();
         });
    });  
 </script>
