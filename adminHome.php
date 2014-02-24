@@ -1,7 +1,7 @@
 <?php
 //session_start();
 require_once './config.php';
-include './includes/connection.php';
+include './includes/connection_final.php';
 include './header.php';
 ?>
 <style type="text/css">
@@ -91,19 +91,34 @@ include './header.php';
     });
 </script>
 <script type="text/javascript">
-   $(document).ready(function(){
-        
-        $("#uniqueShow").click(function(){
-             $("#container").show();
+    $(document).ready(function() {
+
+        $("#uniqueShow").click(function() {
+            $("#container").show();
             $("#addShow").show();
             $("#adminload").hide();
-           $("#editMovie").hide();
-        $("#addMultiplexdiv").hide();
-      
-        $("#editMovie").hide();
-        $("#demo").hide();
+            $("#editMovie").hide();
+            $("#addMultiplexdiv").hide();
+
+            $("#editMovie").hide();
+            $("#demo").hide();
         });
-   });  
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function)() {
+         $("#addShow").hide();
+            $("#adminload").hide();
+            $("#editMovie").hide();
+            $("#addMultiplexdiv").hide();
+
+            $("#editMovie").hide();
+            $("#demo").hide();
+        $("#newadmin").click(function() {
+            $("#container").show();
+            $("#addAdmin").show();
+        });
+    });
 </script>
 <?php
 echo "<link rel='stylesheet' type='text/css' href='./css/menu.css' />";
@@ -311,10 +326,82 @@ include './modules/movies/admin_MenuOptions.php';
                 </tr>
                 <tr>
                     <td>
-                      
+
                     </td>
                 </tr>
             </table>
         </form>
     </div>
+
+    <div id="addAdmin" style="display: none;"> <!--add admin-->
+        <form method="post" action="includes/registeration_success.php">
+            <table align="center" >
+                <tr>
+                    <td>Email ID</td>
+                    <td><input type="text" class="input" name="emailId" /></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" class="input" name="pass" /></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>Confirm Password</td>
+                    <td><input type="password" class="input" name="cpass" /></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" class="input" name="fname"/></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" class="input" name="lname"/></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td><input type="radio" name="gender" id="gender" value="m"/>Male
+                        <input type="radio" name="gender" id="gender" value="f"  />Female</td>
+
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>City</td>
+                    <td><select name="city" style="width:150px;">
+                            <option selected="selected">Select City</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="pune">Pune</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="bangalore">Bangalore</option>
+                            <select/></td>
+                    <td></td>
+                </tr>
+
+
+
+
+
+
+                <tr>
+                    <td align="center" ><input type="reset" name="ok" id="okbtn" value="Reset" class="button"/></td>
+                    <td align="center" ><input type="submit" name="ok" id="okbtn" value="Create" class="button"/></td>
+                    <td></td>
+                </tr>
+
+
+
+            </table>
+            </form>
+
+    </div>
+    
 </div> <!--Container Division ends here-->

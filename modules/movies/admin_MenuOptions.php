@@ -42,7 +42,20 @@
 
             </ul>
         </li>
-        <li><a href='#'><span>User</span></a></li>
+        <li><a href='#'><span>User</span></a>
+          <ul>
+                <li id="newadmin">
+                 
+                <a id='' href='#'><span>Add An Admin</span></a>
+
+                </li>
+
+                <li><a href='#' id="editExMovie"><span>Edit Existing User</span></a>
+
+                </li>
+
+            </ul>
+        </li>
        
 
     </ul>
