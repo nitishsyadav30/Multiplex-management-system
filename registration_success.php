@@ -1,13 +1,13 @@
-<script>
+<!--<script>
   setTimeout(function(){
   window.location = "index.php";
 }, 5000);
-</script>
+</script>-->
 <?php
 include './header.php';
-include './includes/connection.php';
+include './includes/connection_final.php';
 
-$userrole=1; //admin 
+$user_role=1; //admin 
 $emailId = $_POST['emailId'];
 $pass = $_POST['pass'];
 $cpass = $_POST['cpass'];
@@ -16,18 +16,22 @@ $lname = $_POST['lname'];
 $gender = $_POST['gender'];
 $city = $_POST['city'];
 
+if(isset($_SESSION['CurrentUser']))
+  {
+    $userrole=2;
+  }
 
 if ($pass != $cpass)
     {
-echo "<script >
+/*echo "<script >
         setTimeout(function() {
             window.location = 'registration.php';
         }, 5000);
-</script>";
+</script>";*/
       die("Passwords Dont match");
 }
 
-$sql="INSERT INTO register VALUES('$emailId','$pass','$fname','$lname','$gender','$city')";
+$sql="INSERT INTO multiplex_register VALUES('$emailId','$user_role','$pass','$fname','$lname','$gender','$city')";
 
 if (!mysqli_query($con,$sql))
 {
