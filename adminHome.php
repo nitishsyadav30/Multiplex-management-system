@@ -1,5 +1,5 @@
 <?php
-//session_start();
+
 require_once './config.php';
 
 include './includes/connection_final.php';
@@ -108,13 +108,13 @@ include './header.php';
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
-         $("#addShow").hide();
-            $("#adminload").hide();
-            $("#editMovie").hide();
-            $("#addMultiplexdiv").hide();
+        $("#addShow").hide();
+        $("#adminload").hide();
+        $("#editMovie").hide();
+        $("#addMultiplexdiv").hide();
 
-            $("#editMovie").hide();
-            $("#demo").hide();
+        $("#editMovie").hide();
+        $("#demo").hide();
         $("#newadmin").click(function() {
             $("#container").show();
             $("#addAdmin").show();
@@ -401,8 +401,8 @@ include './modules/movies/admin_MenuOptions.php';
 
 
             </table>
-            </form>
+        </form>
 
     </div>
-    
+
 </div> <!--Container Division ends here-->
