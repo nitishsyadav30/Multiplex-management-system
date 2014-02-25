@@ -34,10 +34,7 @@ while ($row_result = mysqli_fetch_array($queryresult)) {
     } else 
         {
         Header("Location: $address/index.php");
-       echo "<div align = 'center' class = 'centerdiv' style = 'width: 1000px; '>";
-       echo "<h2>You have been Logged Out..!!!</h2>";
-
-       echo "</div>";
+       
     }
     
     
