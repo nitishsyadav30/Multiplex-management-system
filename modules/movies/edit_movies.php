@@ -3,9 +3,9 @@
            include BASE_PATH.'/includes/connection.php';
            $mov_id=$_REQUEST['name'];
            //echo "$mov_id";
-           $moviequery="select * from admin_movie where movie_id like '$mov_id'";
-           $moviequeryresult=  mysql_query($moviequery,$con);
-           while($moviequeryrow=  mysql_fetch_array($moviequeryresult))
+           $moviequery="select * from multiplex_admin_movies where movie_id like '$mov_id'";
+           $moviequeryresult=  mysqli_query($con,$moviequery);
+           while($moviequeryrow=  mysqli_fetch_array($moviequeryresult))
            { 
              $rowmovieid=$moviequeryrow['movie_id'];
              $rowmoviename=$moviequeryrow['mname'];

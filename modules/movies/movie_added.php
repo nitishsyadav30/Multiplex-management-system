@@ -1,7 +1,8 @@
 <?php
-
-include '../../includes/connection.php';
-
+include '../../config.php';
+include '../../includes/connection_final.php';
+include BASE_PATH . '/header.php';
+include BASE_PATH . '/modules/movies/admin_MenuOptions.php';
 include './fileupload.php';
 $movie_id=$_POST['mid'];
 $mname = $_POST['mname'];
@@ -13,10 +14,10 @@ $cast = $_POST['cast'];
 $minfo = $_POST['minfo'];
 $review_link=$_POST['review'];
 
-  $sql="insert into admin_movie values('$movie_id','$mname','$rdate','$lang','$genre','$director','$review_link')";
-  if (!mysql_query($sql,$con))
+  $sql="insert into multiplex_admin_movies values('$movie_id','$mname','$rdate','$lang','$genre','$director','$review_link')";
+  if (!mysqli_query($con,$sql))
   {
-  die('Error: ' . mysql_error());
+  die('Error: ' . mysqli_error($con));
   }
   else
   {

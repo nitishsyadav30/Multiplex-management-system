@@ -194,11 +194,11 @@ include './modules/movies/admin_MenuOptions.php';
                         //include './includes/connection.php';
 
                         $select_movie = "select mname,movie_id from admin_movie";
-                        $select_result = mysql_query($select_movie, $con);
+                        $select_result = mysqli_query($con,$select_movie);
                         echo "<select id='mselect' onselect=''>";
 
                         echo "<option value='' >Select Movie</option>";
-                        while ($row_selected = mysql_fetch_array($select_result)) {
+                        while ($row_selected ==mysqli_fetch_array($select_result)) {
                             $mid = $row_selected['movie_id'];
 
                             $movie = $row_selected['mname'];
