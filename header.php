@@ -1,4 +1,6 @@
-<?php session_start();  ?>
+<?php session_start(); 
+
+?>
 <link rel='stylesheet' type='text/css' href= 'http://localhost/Multiplex_System/css/headercss.css'>
 <meta http-equiv="refresh"  url='index.php' ">
 <div style="background: -moz-linear-gradient(270deg, #d1f7f7, rgb(254, 254, 254)) repeat scroll 0% 0% transparent; height:600px;">
@@ -18,18 +20,19 @@
             
             if (isset($_SESSION['CurrentUser'])) {
                            
-                if ($_SESSION['CurrentUser'] ==1) {
+                if ($_SESSION['user_role'] =="1") {
                    
                     $wayto = "localhost://Multiplex_System/";
                     echo "<li><a id='item' href='$address/adminHome.php'>Admin Options</a></li>";
                     echo "<li><a id='item' href='$address/modules/login/logout.php' onclick='testfunction()'>Logout</a></li>";
                     echo '<li>';
-                    echo 'Welcome ' . $_SESSION['CurrentUser'];
+                    echo "<font style='font-style: inherit; font-size:24; color:white;'>" . "Welcome ". ucfirst($_SESSION['fname']) ."\n" .ucfirst($_SESSION['lname']) . "</font>";
                     echo '</li>';
+                    
                 } else {
                     echo "<li><a id='item' href='$address/modules/login/logout.php'>Logout</a></li>";
                     echo "<li >";
-                    echo 'Welcome ' . $_SESSION['CurrentUser'];
+                    echo "<font style='font-style: inherit; font-size:24;color:white;'>" . "Welcome ". ucfirst($_SESSION['fname']) ."\n" .ucfirst($_SESSION['lname']) ."</font>";
                     echo '</li>';
                 
                     
@@ -37,7 +40,7 @@
             } else {
                 echo "<div><li><a id='itemlogin' class='loginclass' href= '$address/login.php'>Login</a></li></div>";
                 echo "<li><a id='item' href='$address/registration.php'>New User?</a></li>";
-                echo "<font style='font-style: inherit; font-size:24;'>Welcome Guest</font>";
+                echo "<font style='font-style: inherit; font-size:24;color:white;'>Welcome Guest</font>";
                
                
             }
