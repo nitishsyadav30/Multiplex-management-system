@@ -29,17 +29,31 @@ include './header.php';
     });
 </script>
 <script type="text/javascript">
+    $(document).ready(function(){
+       $("#multiplexselected").change(function(){
+          var multi_selected=$("#multiplexselected").val();
+          $.post(
+                 "./modules/multiplex/multiplex_selected.php",
+                 {name:multi_selected},
+                 function(data){
+                     $("#addShowId").html(data);
+                 }
+                );
+       }); 
+    });
+</script>
+<script type="text/javascript">
     $(document).ready(function() {
         $("#mselect").change(function() {
             $("#adminload").hide();
-            $("#demo").show();
+            $("#showmoviedetails").show();
             var selectValue = $("#mselect").val();
             //alert("Its Working"+selectValue);
             $.post(
                     "./modules/movies/edit_movies.php",
                     {name: selectValue},
             function(data) {
-                $('#demo').html(data);
+                $('#showmoviedetails').html(data);
             }
 
             );
@@ -47,18 +61,35 @@ include './header.php';
         });
     });
 </script>
-
+<script>
+    $(document).ready(function() {
+        $("#mulselect").change(function() {
+            $("#showmuldetails").show();
+            var getvalue=$("#mulselect").val();
+            //alert("Its Working");
+            $.post(
+                    "./modules/multiplex/editmultiplex.php",
+                     {name: getvalue},
+                     function(data){
+                         $('#showmuldetails').html(data);
+                     }
+                  );
+        });
+    });
+</script>
 <script type="text/javascript" >
     $(document).ready(function() {
         $("#adminload").hide();
-
-        $("#unique").click(function() {
+        $("#editMultiplex").hide();
+        
+        $("#addnewmovie").click(function() {
             $("#addMultiplexdiv").hide();
             $("#container").show()
             $("#adminload").show()
             $("#editMovie").hide();
             $("#demo").hide();
-
+           
+            $("#editMultiplex").hide();
         });
     });
 </script>
@@ -68,6 +99,7 @@ include './header.php';
         $("#editMovie").hide();
 
         $("#editExMovie").click(function() {
+            $("#editMultiplex").hide();
             $("#addMultiplexdiv").hide();
             $("#container").show()
             $("#editMovie").show()
@@ -83,6 +115,7 @@ include './header.php';
 
         $("#uniqueMultiplex").click(function() {
             $("#adminload").hide();
+            $("#editMultiplex").hide();
             $("#editMovie").hide();
             $("#demo").hide();
             $("#container").show();
@@ -100,7 +133,7 @@ include './header.php';
             $("#adminload").hide();
             $("#editMovie").hide();
             $("#addMultiplexdiv").hide();
-
+            $("#editMultiplex").hide();
             $("#editMovie").hide();
             $("#demo").hide();
         });
@@ -112,13 +145,28 @@ include './header.php';
         $("#adminload").hide();
         $("#editMovie").hide();
         $("#addMultiplexdiv").hide();
-
+        $("#editMultiplex").hide();
         $("#editMovie").hide();
         $("#demo").hide();
         $("#newadmin").click(function() {
             $("#container").show();
             $("#addAdmin").show();
         });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $("#lieditmultiplex").click(function(){
+        $("#addShow").hide();
+        $("#adminload").hide();
+        $("#editMovie").hide();
+        $("#addMultiplexdiv").hide();
+        $("#editMovie").hide();
+        $("#demo").hide();
+        $("#container").show();
+        $("#addAdmin").hide();
+        $("#editMultiplex").show();
+       }); 
     });
 </script>
 <?php
@@ -191,17 +239,17 @@ include './modules/movies/admin_MenuOptions.php';
                     <td>Select Movie</td>
                     <td>
                         <?php
-                        //include './includes/connection.php';
+                        
 
-                        $select_movie = "select mname,movie_id from admin_movie";
+                        $select_movie = "select movie_name,movie_id from multiplex_admin_movies";
                         $select_result = mysqli_query($con,$select_movie);
                         echo "<select id='mselect' onselect=''>";
 
                         echo "<option value='' >Select Movie</option>";
-                        while ($row_selected ==mysqli_fetch_array($select_result)) {
+                        while ($row_selected = mysqli_fetch_array($select_result)) {
                             $mid = $row_selected['movie_id'];
 
-                            $movie = $row_selected['mname'];
+                            $movie = $row_selected['movie_name'];
                             echo "<option id='moption' name='$mid' value='$mid'>$movie</option>";
                         }
                         echo '</select>';
@@ -212,7 +260,7 @@ include './modules/movies/admin_MenuOptions.php';
         </form>
     </div>
 
-    <div id="demo" style="display: none;"></div> 
+    <div id="showmoviedetails" style="display: none;"></div> 
 
     <div id="addMultiplexdiv" style="display: none;">
         <form action="./modules/multiplex/multiplex_added.php" method="post">
@@ -268,23 +316,38 @@ include './modules/movies/admin_MenuOptions.php';
         </form>
     </div>
 
-    <div id="editMultiplex" style="display: none;">
+    
+    <div id="editMultiplex" style="display: none;"> <!--edit multiplex info div starts here-->
         <table border="0">
             <tr><th colspan="2">Edit Multiplex</th></tr>
             <tr>
                 <td>Select Multiplex</td>
                 <td>
-                    <select>
-                        <option value="" name="">Click to select</option>
+                    <?php
+                        
 
-                    </select>
+                        $select_multiplex = "select mul_name,mul_id from multiplex_add_multiplex";
+                        $select_multiplex_result = mysqli_query($con,$select_multiplex);
+                        echo "<select id='mulselect' onselect=''>";
+
+                        echo "<option value='' >Select Multiplex</option>";
+                        while ($row_selected = mysqli_fetch_array($select_multiplex_result)) {
+                            $mult_id = $row_selected['mul_id'];
+
+                            $mult_name = $row_selected['mul_name'];
+                            echo "<option id='moption' name='$mult_id' value='$mult_id'>$mult_name</option>";
+                        }
+                        echo '</select>';
+                        ?>
                 </td>
             </tr>
         </table>
-    </div>
+    </div> <!--edit multiplex info div ends here-->
 
+    <div id="showmuldetails" style="display: none;"> </div>
+    
     <div id="addShow" style="display: none;">
-        <form>
+        <form method="post" action="">
             <table>
                 <tr>
                     <th colspan="2"><center>Add a show!!</center></th>
@@ -295,12 +358,12 @@ include './modules/movies/admin_MenuOptions.php';
                         <select>
                             <option value=""> Click </option>
                             <?php
-                            $select_movie_show = "select mname,movie_id from admin_movie";
-                            $select_result_show = mysql_query($select_movie_show, $con);
-                            while ($row_selected = mysql_fetch_array($select_result_show)) {
+                            $select_movie_show = "select movie_name,movie_id from multiplex_admin_movies";
+                            $select_result_show = mysqli_query($con,$select_movie_show);
+                            while($row_selected = mysqli_fetch_array($select_result_show)) {
                                 $mid = $row_selected['movie_id'];
 
-                                $movie = $row_selected['mname'];
+                                $movie = $row_selected['movie_name'];
                                 echo "<option id='moption' name='$mid' value='$mid'>$movie</option>";
                             }
                             ?>
@@ -310,16 +373,17 @@ include './modules/movies/admin_MenuOptions.php';
                 <tr>
                     <td>Select Multiplex</td>
                     <td>
-                        <select>
-                            <option value=""> Click </option>
+                        <select id="multiplexselected">
+                            <option value="null" name="null"> Click </option>
                             <?php
-                            $select_multiplex_show = "select from";
-                            $select_mul_result_show = mysql_query($select_multiplex_show, $con);
-                            while ($row_selected = mysql_fetch_array($select_mul_result_show)) {
-                                $mul_id = $row_selected[''];
+                            $select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
+                            $select_mul_result_show = mysqli_query($con,$select_multiplex_show);
+                            $mult_id="";
+                            while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
+                                $multi_id = $row_selected['mul_id'];
 
-                                $multiplex = $row_selected[''];
-                                echo "<option id='moption' name='' value=''>$multiplex</option>";
+                                $multiplex = $row_selected['mul_name'];
+                                echo "<option id='moption' name='$multi_id' value='$multi_id'>$multiplex</option>";
                             }
                             ?>
                         </select>
@@ -327,7 +391,13 @@ include './modules/movies/admin_MenuOptions.php';
                 </tr>
                 <tr>
                     <td>
-
+                        Select Screen
+                    </td>
+                    <td id="addShowId">
+                        
+                        <select>
+                            <option>Select Multiplex First</option>
+                        </select>
                     </td>
                 </tr>
             </table>

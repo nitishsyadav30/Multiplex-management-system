@@ -1,6 +1,6 @@
 <?php 
            require_once '../../config.php';
-           include BASE_PATH.'/includes/connection.php';
+           include BASE_PATH.'/includes/connection_final.php';
            $mov_id=$_REQUEST['name'];
            //echo "$mov_id";
            $moviequery="select * from multiplex_admin_movies where movie_id like '$mov_id'";

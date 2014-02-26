@@ -10,7 +10,7 @@
 
                 </li>
 
-                <li><a href='#' id="edit"><span>Edit Multiplex</span></a>
+                <li id="lieditmultiplex"><a href='#' id="edit"><span>Edit Multiplex</span></a>
 
                 </li>
 
@@ -19,7 +19,7 @@
              
         <li><a href='#'><span>Movies</span></a>
             <ul>
-                <li id="unique"><a id='ajaxlink' href='#'><span>Add New Movie</span></a>
+                <li id="addnewmovie"><a id='ajaxlink' href='#'><span>Add New Movie</span></a>
                 </li>
 
                 <li><a href='#' id="editExMovie"><span>Edit Existing Movie</span></a>
