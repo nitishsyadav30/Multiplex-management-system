@@ -16,6 +16,18 @@
 
             </ul> 
         </li>
+        <li><a href='#'><span>Screens</span></a>
+            <ul>
+                <li id="liaddScreens"><a id='ajaxlink' href='#'><span>Add Screens</span></a>
+
+                </li>
+
+                <li id="lieditscreens"><a href='#' id="edit"><span>Edit Screens</span></a>
+
+                </li>
+
+            </ul> 
+        </li>
              
         <li><a href='#'><span>Movies</span></a>
             <ul>

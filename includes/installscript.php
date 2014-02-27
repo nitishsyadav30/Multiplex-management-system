@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 $db_create = "create database multiplex_management";
 
 if (mysqli_query($db_con, $db_create)) {
-    echo "Congrats man";
+    echo "Database Created";
 }
  
 
