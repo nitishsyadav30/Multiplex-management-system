@@ -11,6 +11,7 @@ $db_create = "create database multiplex_management";
 if (mysqli_query($db_con, $db_create)) {
     echo "Database Created";
 }
+
  
 
 $register_table = "create table ".$prefix."register(user_email varchar(30), user_role int(3),pass varchar(20),fname varchar(10),lname varchar(10),gender varchar(8),city varchar(10),PRIMARY KEY(user_email))";

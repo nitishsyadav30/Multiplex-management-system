@@ -213,7 +213,7 @@ include './modules/movies/admin_MenuOptions.php';
 
 <div id="container" style="display: none;">
 
-    <div id="adminload" style="display: none;">
+    <div id="adminload" style="display: none;"> 
 
 
 
@@ -548,6 +548,18 @@ while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
                     <td id="getScreenId">
                      
                     </td>
+                </tr>
+                <tr>
+                    <td>Screen Capacity</td>
+                    <td><input type="text" name="scrcapacity" /></td>
+                </tr>
+                <tr>
+                    <td>Balcony Seats</td>
+                    <td><input type="text" name="balseats" /></td>
+                </tr>
+                <tr>
+                    <td>DC Seats</td>
+                    <td><input type="text" name="dcseats" /></td>
                 </tr>
             </table>
         </form>
