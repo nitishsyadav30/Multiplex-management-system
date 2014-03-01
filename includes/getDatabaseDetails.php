@@ -1,3 +1,4 @@
+<?php include_once '../header.php'; ?>
 <html>
     <head>
         <title>Getting Your Product Ready</title>
@@ -26,7 +27,8 @@
                 </tr>
                 <tr>
                     <td>Table Prefix</td>
-                    <td><input type="text" name="tprefix"><td style="color: red;">*Preferred entry is only text</td></td>
+                    <td><input type="text" name="tprefix"></td>
+                    <td style="color: red;">*Preferred entry is only text</td>
                 </tr>
                 <tr>
                     <td colspan="2"><center><input type="submit"></center></td>
