@@ -1,8 +1,11 @@
 <?php
 
-$db="multiplex_management";
-$prefix = "multiplex_";
-$db_con = mysqli_connect("localhost", "multiplex", "multiplex123");
+$db=$_POST['dbname'];
+$server_name=$_POST['sername'];
+$username=$_POST['username'];
+$userpass=$_POST['password'];
+$prefix =$_POST['tprefix']; ;
+$db_con = mysqli_connect($server_name,$username,$userpass);
 if (mysqli_connect_errno()) {
     echo "Connection error: " . mysqli_connect_error();
 }
@@ -31,6 +34,7 @@ if (mysqli_query($db_con,$register_table))
         {
           echo "Table no 1 cannot be created:" . mysqli_error($db_con)."\n"; 
        }
+ $insert_default_admin_values="insert into ";      
        
 if (mysqli_query($db_con,$admin_movies_table))
     {

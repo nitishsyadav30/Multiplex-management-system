@@ -1,7 +1,7 @@
  <?php
 define ('BASE_PATH',dirname(realpath(__FILE__)));
 $host="localhost";
-$user="Nitish";
+$user="nitish";
 $public_replace_string="/home/$user/public_html/";
 $public_windows_string='C:/wamp/www/Multiplex_System//';
 $localhost_replace_string="/var/www/";
@@ -23,7 +23,7 @@ $string= BASE_PATH;
     }
     else
     {
-        $address=substr_replace("$string","http://192.168.0.105/",0,strlen($localhost_replace_string));
+        $address=substr_replace("$string","http://192.168.85.128/",0,strlen($localhost_replace_string));
         define ('main',$address . '/');
         
     }
