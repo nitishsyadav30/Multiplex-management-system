@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>Table Prefix</td>
-                    <td><input type="text" name="tprefix"><td style="color: red;">*Preferred entry is only text</tdcccccccc></td>
+                    <td><input type="text" name="tprefix"><td style="color: red;">*Preferred entry is only text</td></td>
                 </tr>
                 <tr>
                     <td colspan="2"><center><input type="submit"></center></td>
