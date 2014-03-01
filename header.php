@@ -1,9 +1,7 @@
-<?php session_start(); 
-
-?>
+<?php session_start(); ?>
 <link rel='stylesheet' type='text/css' href= 'http://localhost/Multiplex_System/css/headercss.css'>
 <meta http-equiv="refresh"  url='index.php' ">
-<div style="background: -moz-linear-gradient(270deg, #d1f7f7, rgb(254, 254, 254)) repeat scroll 0% 0% transparent; height:600px;">
+<div style="height:600px;">
     <div id="mov_table" align="center" style="">
         <img src="http://localhost/Multiplex_System/multiplex_logo.jpg" alt="logo" width="60%" height="20%" >
     </div>
@@ -47,6 +45,4 @@
             ?>
         </ul>
     </div>
-
-    
     <br />

@@ -39,8 +39,8 @@ die('Error: ' . mysqli_error($con));
 }
 else
 {
-echo "Registration Complete".'<br />';
-echo "Redirecting You to the Login Page";
+echo "<div align='center'><h3>Registration Complete".'<br />';
+echo "Redirecting You to the Login Page</h3><div>";
 
 }
 

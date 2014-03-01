@@ -8,7 +8,7 @@
   <?php
     
   require_once '../../config.php';
- // include BASE_PATH.'/includes/css.php';
+ 
   ?>
 </head>
    

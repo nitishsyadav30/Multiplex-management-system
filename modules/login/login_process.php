@@ -33,9 +33,8 @@ while ($row_result = mysqli_fetch_array($queryresult)) {
         Header("Location: $address/index.php");
     } else 
         {
-        Header("Location: $address/index.php");
-       
-    }
+         Header("Location: $address/index.php");
+        }
     
     
 }
