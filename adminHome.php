@@ -512,25 +512,25 @@ while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
 
     </div>
 
-    <div id="divaddscreens" style="display: none;">
-        <form>
+    <div id="divaddscreens" style="display: none;"> <!--add screens-->
+        <form action="modules/screens/screen_added.php" method="post">
             <table>
                 <tr><th colspan="2">Add Screen!!</th></tr>
                 <tr>
                     <td>Select Multiplex</td>
                     <td>
-                        <select id="addscreenmultiplex">
+                        <select id="addscreenmultiplex" name="multiplexname">
                             <option value="null">Click to Select</option>
-<?php
-$select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
-$select_mul_result_show = mysqli_query($con, $select_multiplex_show);
-while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
-    $multi_id = $row_selected['mul_id'];
+                                <?php
+                                    $select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
+                                    $select_mul_result_show = mysqli_query($con, $select_multiplex_show);
+                                    while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
+                                        $multi_id = $row_selected['mul_id'];
 
-    $multiplex = $row_selected['mul_name'];
-    echo "<option id='moption' name='$multi_id' value='$multi_id'>$multiplex</option>";
-}
-?>
+                                             $multiplex = $row_selected['mul_name'];
+                                                echo "<option id='moption' name='multiplexname' value='$multi_id'>$multiplex</option>";
+                                          }
+                                 ?>
                         </select>
                     </td>
                 </tr>
@@ -561,7 +561,37 @@ while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
                     <td>DC Seats</td>
                     <td><input type="text" name="dcseats" /></td>
                 </tr>
+                
+                <tr>
+                    <td>Select Screen timings:</td> 
+                    <td>
+                        <?php
+                          echo "<select name='starttime'>";
+                          echo "<option value=''>Select</option>";
+                          $start=12;
+                          for($i=8;$i<=$start;$i++)
+                          {
+                           echo "<option value='$i' name='$i'>$i</option>";    
+                          }
+                          echo "</select>";
+                          
+                          echo "<select name='endtime'>";
+                          echo "<option value=''>Select</option>";
+                          $end=24;
+                          for($j=13;$j<=$end;$j++)
+                          {
+                           echo "<option value='$j' name='$j'>$j</option>";    
+                          }
+                         echo "</select>";                            
+                        ?>
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <td colspan="2" ><input type="submit" value="Add Screen"></td>
+                </tr>
             </table>
         </form>
-    </div>
+    </div> <!--add screens ends--> 
+    
 </div> <!--Container Division ends here-->

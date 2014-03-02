@@ -12,13 +12,13 @@
  {
      $screens_fetched=$getscreens_row['mul_screens'];
     ?>
-<select id="screensadded">
+<select id="screensadded" name="screenno">
     <option value="">Select</option>
     <?php
       for($scr=1;$scr<=$screens_fetched;$scr++)
       {
          
-               echo "<option value='$scr' name='$scr'>$scr</option>";
+               echo "<option value='$scr' name=''>$scr</option>";
       }
     ?>
 </select>
