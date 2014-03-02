@@ -24,12 +24,19 @@ if (mysqli_query($db_con, $db_create)) {
  
 
 $register_table = "create table ".$prefix."_register(user_email varchar(30), user_role int(3),pass varchar(20),fname varchar(10),lname varchar(10),gender varchar(8),city varchar(10),PRIMARY KEY(user_email))";
+
 $admin_movies_table = "create table " . $prefix."_admin_movies(movie_id varchar(5) primary key,movie_name varchar(15),rel_date datetime,language varchar(10),genre varchar(10),director varchar(10),review_link varchar(30))";
+
 $add_multiplex_table = "create table " . $prefix."_add_multiplex(mul_id varchar(10),mul_name varchar(12),mul_city varchar(10),mul_area varchar(10),mul_addr varchar(100),mul_screens int(10),PRIMARY KEY(mul_id))";
-$add_screens_table = "create table " . $prefix."_add_screen(screen_id varchar(6) primary key,screen_no int(2),mul_name varchar(12),screen_strength int(3),balcony_seats int(3),dc_seats int(3),foreign key(mul_name) references "."$prefix"."_add_multiplex(mul_name))";
-$add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key,screen_id varchar(6),mul_id varchar(10),show_date datetime,show_time datetime,foreign key(mul_id) references " ."$prefix" . "_add_multiplex(mul_id),foreign key(screen_id) references "."$prefix"."_add_screen(screen_id))";
-$add_booking_table = "create table " . $prefix."_booking(booking_id int(5),movie_id varchar(5),user_email varchar(30),show_id int(5),screen_id varchar(6),no_of_seats int(2),seat_no int(2),mov_time datetime,foreign key(user_email) references "."$prefix"."_register(user_email),foreign key(movie_id) references "."$prefix"."_admin_movies(movie_id),foreign key(show_id) references "."$prefix"."_add_show(show_id),foreign key(screen_id) references "."$prefix"."_add_screen(screen_id))";
-$add_screen_timeslots="create table ".$prefix."_screen_timeslots(screen_id varchar(6),timeslot1 time,timeslot2 time,timeslot3 time,timeslot4 time,timeslot5 time,foreign key(screen_id) references ".$prefix."_add_screen(screen_id))";
+
+$add_screens_table = "create table " . $prefix."_add_screen(screen_id varchar(6) primary key,screen_no int(2),mul_name varchar(12),screen_strength int(3),balcony_seats int(3),dc_seats int(3),foreign key(mul_name) references ". "$prefix" ."_add_multiplex(mul_name))";
+
+$add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key,screen_id varchar(6),mul_id varchar(10),show_date datetime,show_time datetime,foreign key(mul_id) references " . "$prefix" . "_add_multiplex(mul_id),foreign key(screen_id) references ". "$prefix" ."_add_screen(screen_id))";
+
+$add_booking_table = "create table " . $prefix."_booking(booking_id int(5),movie_id varchar(5),user_email varchar(30),show_id int(5),screen_id varchar(6),no_of_seats int(2),seat_no int(2),mov_time datetime,foreign key(user_email) references ". "$prefix" ."_register(user_email),foreign key(movie_id) references ". "$prefix" ."_admin_movies(movie_id),foreign key(show_id) references ". "$prefix" ."_add_show(show_id),foreign key(screen_id) references ". "$prefix" ."_add_screen(screen_id))";
+
+$add_screen_timeslots="create table ".$prefix."_screen_timeslots(screen_id varchar(6),timeslot1 time,timeslot2 time,timeslot3 time,timeslot4 time,timeslot5 time,foreign key(screen_id) references ". "$prefix" ."_add_screen(screen_id))";
+
 mysqli_select_db($db_con,$db) or die(mysql_error());
 
 if (mysqli_query($db_con,$register_table))
@@ -92,7 +99,7 @@ if (mysqli_query($db_con,$admin_movies_table))
         {
           echo "Table no 6 cannot be created:" . mysqli_error($db_con) ." <br />"; 
        }
-       
+    
   if (mysqli_query($db_con,$add_screen_timeslots))
     {
     echo "table 7 created  <br>";
