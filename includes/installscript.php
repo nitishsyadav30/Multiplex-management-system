@@ -29,7 +29,7 @@ $admin_movies_table = "create table " . $prefix."_admin_movies(movie_id varchar(
 
 $add_multiplex_table = "create table " . $prefix."_add_multiplex(mul_id varchar(10),mul_name varchar(12),mul_city varchar(10),mul_area varchar(10),mul_addr varchar(100),mul_screens int(10),PRIMARY KEY(mul_id))";
 
-$add_screens_table = "create table " . $prefix."_add_screen(screen_id varchar(6) primary key,screen_no int(2),mul_name varchar(12),screen_strength int(3),balcony_seats int(3),dc_seats int(3),foreign key(mul_name) references ". "$prefix" ."_add_multiplex(mul_name))";
+$add_screens_table = "create table " . $prefix."_add_screen(screen_id varchar(6) primary key,screen_no int(2),mul_id varchar(10),screen_strength int(3),balcony_seats int(3),dc_seats int(3),foreign key(mul_id) references ". "$prefix" ."_add_multiplex(mul_id))";
 
 $add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key,screen_id varchar(6),mul_id varchar(10),show_date datetime,show_time datetime,foreign key(mul_id) references " . "$prefix" . "_add_multiplex(mul_id),foreign key(screen_id) references ". "$prefix" ."_add_screen(screen_id))";
 
