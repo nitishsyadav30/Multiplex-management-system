@@ -27,9 +27,14 @@ include './header.php';
         $("#date").datepicker();
     });
 </script>
-<script type="text/javascript">
+<script type="text/javascript"> // 
     $(document).ready(function() {
         $("#multiplexselected").change(function() {
+            $("#addmovieadmin").hide();
+            $("#editMultiplex").hide();
+            $("#editMovie").hide();
+            $("#demo").hide();
+            $("#addMultiplexdiv").hide();
             var multi_selected = $("#multiplexselected").val();
             $.post(
                     "./modules/multiplex/multiplex_selected.php",
@@ -38,21 +43,23 @@ include './header.php';
                 $("#addShowId").html(data);
             }
             );
+
+
         });
     });
 </script>
 <script type="text/javascript"> //to get screen Id
-    $(document).ready(function(){
-        $("#addscreenshow").change(function(){
-            var mname=$("#addscreenmultiplex").val();
-            var sno=$("#screensadded").val();
+    $(document).ready(function() {
+        $("#addscreenshow").change(function() {
+            var mname = $("#addscreenmultiplex").val();
+            var sno = $("#screensadded").val();
             $.post(
                     "./modules/screens/generate_screen_id.php",
-                    {name:mname,no:sno},
-                    function(data){
-                        $("#getScreenId").html(data);
-                    }
-                  );
+                    {name: mname, no: sno},
+            function(data) {
+                $("#getScreenId").html(data);
+            }
+            );
         });
     });
 </script>
@@ -67,13 +74,20 @@ include './header.php';
                 $("#addscreenshow").html(data);
             }
             );
+            $("#addmovieadmin").hide();
+            $("#editMultiplex").hide();
+            $("#editMovie").hide();
+            $("#demo").hide();
+
+            $("#addMultiplexdiv").hide();
+            $("#addShow").hide();
         });
     });
 </script>
-<script type="text/javascript">
+<script type="text/javascript"> // to edit movies
     $(document).ready(function() {
         $("#mselect").change(function() {
-            $("#adminload").hide();
+            $("#addmovieadmin").hide();
             $("#showmoviedetails").show();
             var selectValue = $("#mselect").val();
             //alert("Its Working"+selectValue);
@@ -86,6 +100,13 @@ include './header.php';
 
             );
             selectValue = "";
+            $("#addmovieadmin").hide();
+            $("#editMultiplex").hide();
+            $("#editMovie").hide();
+            $("#demo").hide();
+            $("#divaddscreens").hide();
+            $("#addMultiplexdiv").hide();
+            $("#addShow").hide();
         });
     });
 </script>
@@ -102,21 +123,28 @@ include './header.php';
                 $('#showmuldetails').html(data);
             }
             );
+            $("#addmovieadmin").hide();
+            $("#editMultiplex").hide();
+            $("#editMovie").hide();
+            $("#demo").hide();
+            $("#divaddscreens").hide();
+            $("#addMultiplexdiv").hide();
+            $("#addShow").hide();
         });
     });
 </script>
-<script type="text/javascript" >
+<script type="text/javascript" > // 
     $(document).ready(function() {
-        $("#adminload").hide();
+        $("#addmovieadmin").hide();
         $("#editMultiplex").hide();
 
         $("#addnewmovie").click(function() {
             $("#addMultiplexdiv").hide();
             $("#container").show()
-            $("#adminload").show()
+            $("#addmovieadmin").show()
             $("#editMovie").hide();
             $("#demo").hide();
-
+            $("#divaddscreens").hide();
             $("#editMultiplex").hide();
         });
     });
@@ -131,47 +159,50 @@ include './header.php';
             $("#addMultiplexdiv").hide();
             $("#container").show()
             $("#editMovie").show()
-            $("#adminload").hide();
-
+            $("#addmovieadmin").hide();
+            $("#divaddscreens").hide();
         });
     });
 </script>
-<script type="text/javascript">
+<script type="text/javascript"> // add multiplex 
     $(document).ready(function() {
         $("#editMovie").hide();
         $("#addMultiplexdiv").hide();
 
         $("#uniqueMultiplex").click(function() {
-            $("#adminload").hide();
+            $("#addmovieadmin").hide();
             $("#editMultiplex").hide();
             $("#editMovie").hide();
             $("#demo").hide();
             $("#container").show();
             $("#addMultiplexdiv").show();
             $("#addShow").hide();
+            $("#divaddscreens").hide();
         });
     });
 </script>
-<script type="text/javascript">
+<script type="text/javascript"> // add show 
     $(document).ready(function() {
 
         $("#uniqueShow").click(function() {
             $("#container").show();
             $("#addShow").show();
-            $("#adminload").hide();
+            $("#addmovieadmin").hide();
             $("#editMovie").hide();
             $("#addMultiplexdiv").hide();
             $("#editMultiplex").hide();
             $("#editMovie").hide();
             $("#demo").hide();
+            $("#divaddscreens").hide();
         });
     });
 </script>
-<script type="text/javascript">
+<script type="text/javascript"> // add admin 
     $(document).ready(function() {
         $("#addShow").hide();
-        $("#adminload").hide();
+        $("#addmovieadmin").hide();
         $("#editMovie").hide();
+        $("#divaddscreens").hide();
         $("#addMultiplexdiv").hide();
         $("#editMultiplex").hide();
         $("#editMovie").hide();
@@ -182,13 +213,14 @@ include './header.php';
         });
     });
 </script>
-<script type="text/javascript">
+<script type="text/javascript"> // edit multiplex
     $(document).ready(function() {
         $("#lieditmultiplex").click(function() {
             $("#addShow").hide();
-            $("#adminload").hide();
+            $("#addmovieadmin").hide();
             $("#editMovie").hide();
             $("#addMultiplexdiv").hide();
+            $("#divaddscreens").hide();
             $("#editMovie").hide();
             $("#demo").hide();
             $("#container").show();
@@ -197,9 +229,21 @@ include './header.php';
         });
     });
 </script>
-<script>
+<script type="text/javascript"> // add screens
     $(document).ready(function() {
         $("#liaddScreens").click(function() {
+
+
+            $("#addShow").hide();
+            $("#addmovieadmin").hide();
+            $("#editMovie").hide();
+            $("#addMultiplexdiv").hide();
+
+            $("#editMovie").hide();
+            $("#demo").hide();
+
+            $("#addAdmin").hide();
+            $("#editMultiplex").hide();
             $("#container").show();
             $("#divaddscreens").show();
 
@@ -213,7 +257,7 @@ include './modules/movies/admin_MenuOptions.php';
 
 <div id="container" style="display: none;">
 
-    <div id="adminload" style="display: none;"> 
+    <div id="addmovieadmin" style="display: none;"> 
 
 
 
@@ -358,20 +402,20 @@ include './modules/movies/admin_MenuOptions.php';
             <tr>
                 <td>Select Multiplex</td>
                 <td>
-<?php
-$select_multiplex = "select mul_name,mul_id from multiplex_add_multiplex";
-$select_multiplex_result = mysqli_query($con, $select_multiplex);
-echo "<select id='mulselect' onselect=''>";
+                    <?php
+                    $select_multiplex = "select mul_name,mul_id from multiplex_add_multiplex";
+                    $select_multiplex_result = mysqli_query($con, $select_multiplex);
+                    echo "<select id='mulselect' onselect=''>";
 
-echo "<option value='' >Select Multiplex</option>";
-while ($row_selected = mysqli_fetch_array($select_multiplex_result)) {
-    $mult_id = $row_selected['mul_id'];
+                    echo "<option value='' >Select Multiplex</option>";
+                    while ($row_selected = mysqli_fetch_array($select_multiplex_result)) {
+                        $mult_id = $row_selected['mul_id'];
 
-    $mult_name = $row_selected['mul_name'];
-    echo "<option id='moption' name='$mult_id' value='$mult_id'>$mult_name</option>";
-}
-echo '</select>';
-?>
+                        $mult_name = $row_selected['mul_name'];
+                        echo "<option id='moption' name='$mult_id' value='$mult_id'>$mult_name</option>";
+                    }
+                    echo '</select>';
+                    ?>
                 </td>
             </tr>
         </table>
@@ -379,7 +423,9 @@ echo '</select>';
 
     <div id="showmuldetails" style="display: none;"> </div>
 
-    <div id="addShow" style="display: none;">
+
+
+    <div id="addShow" style="display: none;"> <!-- Add Shows -->
         <form method="post" action="">
             <table>
                 <tr>
@@ -388,18 +434,18 @@ echo '</select>';
                 <tr>
                     <td>Select Movie</td>
                     <td>
-                        <select>
+                        <select name="movie_select">
                             <option value=""> Click </option>
-<?php
-$select_movie_show = "select movie_name,movie_id from multiplex_admin_movies";
-$select_result_show = mysqli_query($con, $select_movie_show);
-while ($row_selected = mysqli_fetch_array($select_result_show)) {
-    $mid = $row_selected['movie_id'];
+                            <?php
+                            $select_movie_show = "select movie_name,movie_id from multiplex_admin_movies";
+                            $select_result_show = mysqli_query($con, $select_movie_show);
+                            while ($row_selected = mysqli_fetch_array($select_result_show)) {
+                                $mid = $row_selected['movie_id'];
 
-    $movie = $row_selected['movie_name'];
-    echo "<option id='moption' name='$mid' value='$mid'>$movie</option>";
-}
-?>
+                                $movie = $row_selected['movie_name'];
+                                echo "<option id='moption' name='$mid' value='$mid'>$movie</option>";
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -408,17 +454,17 @@ while ($row_selected = mysqli_fetch_array($select_result_show)) {
                     <td>
                         <select id="multiplexselected">
                             <option value="null" name="null"> Click </option>
-<?php
-$select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
-$select_mul_result_show = mysqli_query($con, $select_multiplex_show);
-$mult_id = "";
-while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
-    $multi_id = $row_selected['mul_id'];
+                            <?php
+                            $select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
+                            $select_mul_result_show = mysqli_query($con, $select_multiplex_show);
+                            $mult_id = "";
+                            while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
+                                $multi_id = $row_selected['mul_id'];
 
-    $multiplex = $row_selected['mul_name'];
-    echo "<option id='moption' name='$multi_id' value='$multi_id'>$multiplex</option>";
-}
-?>
+                                $multiplex = $row_selected['mul_name'];
+                                echo "<option id='moption' name='$multi_id' value='$multi_id'>$multiplex</option>";
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -434,8 +480,52 @@ while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
                     </td>
 
                 </tr>
+                
                 <tr>
-                    <td></td>
+                    <td>Show Date</td>
+                    <td><?php
+                        $frommktime1= mktime(0,0,0,date("m"),date("d")+1,date("y"));
+                        $frommktime2= mktime(0,0,0,date("m"),date("d")+2,date("y"));
+                        $frommktime3= mktime(0,0,0,date("m"),date("d")+3,date("y"));
+                        $frommktime4= mktime(0,0,0,date("m"),date("d")+4,date("y"));
+                        $frommktime5= mktime(0,0,0,date("m"),date("d")+5,date("y"));
+                        
+                    ?>
+                        <select name="showdate">
+                            <option>Select Date</option>
+                            <?php 
+                               echo "<option name='date'>".date("d/m/y",$frommktime1)."</option>";
+                               echo "<option name='date'>".date("d/m/y",$frommktime2)."</option>";
+                               echo "<option name='date'>".date("d/m/y",$frommktime3)."</option>";
+                               echo "<option name='date'>".date("d/m/y",$frommktime4)."</option>";
+                               echo "<option name='date'>".date("d/m/y",$frommktime5)."</option>";
+                               
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Select Show Timings</td>
+                    <td>
+                        <select name="time_selected">
+                            <option value="">Timings</option>
+                            <?php
+                            $getshow = "select * from multiplex_showtime";
+                            $getshow_query = mysqli_query($con, $getshow);
+                            while ($row_getshow = mysqli_fetch_array($getshow_query)) {
+                                $time_id = $row_getshow['time_id'];
+                                $timings = $row_getshow['timings'];
+
+                                echo "<option name='$time_id' value='$time_id'>$timings</option>";
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Add Show">
+                    </td>
                 </tr>
             </table>
         </form>
@@ -444,6 +534,7 @@ while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
     <div id="addAdmin" style="display: none;"> <!--add admin-->
         <form method="post" action="registration_success.php">
             <table align="center">
+                <tr><th>Admin Registration</th></tr>
                 <tr>
                     <td>Email ID</td>
                     <td><input type="text" class="input" name="emailId" /></td>
@@ -521,16 +612,16 @@ while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
                     <td>
                         <select id="addscreenmultiplex" name="multiplexname">
                             <option value="null">Click to Select</option>
-                                <?php
-                                    $select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
-                                    $select_mul_result_show = mysqli_query($con, $select_multiplex_show);
-                                    while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
-                                        $multi_id = $row_selected['mul_id'];
+                            <?php
+                            $select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
+                            $select_mul_result_show = mysqli_query($con, $select_multiplex_show);
+                            while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
+                                $multi_id = $row_selected['mul_id'];
 
-                                             $multiplex = $row_selected['mul_name'];
-                                                echo "<option id='moption' name='multiplexname' value='$multi_id'>$multiplex</option>";
-                                          }
-                                 ?>
+                                $multiplex = $row_selected['mul_name'];
+                                echo "<option id='moption' name='multiplexname' value='$multi_id'>$multiplex</option>";
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -543,10 +634,10 @@ while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
                     </td>
                 </tr>
                 <tr>
-                  
+
                     <td>Screen Id:</td>
                     <td id="getScreenId">
-                     
+
                     </td>
                 </tr>
                 <tr>
@@ -561,37 +652,13 @@ while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
                     <td>DC Seats</td>
                     <td><input type="text" name="dcseats" /></td>
                 </tr>
-                
-                <tr>
-                    <td>Select Screen timings:</td> 
-                    <td>
-                        <?php
-                          echo "<select name='starttime'>";
-                          echo "<option value=''>Select</option>";
-                          $start=12;
-                          for($i=8;$i<=$start;$i++)
-                          {
-                           echo "<option value='$i' name='$i'>$i</option>";    
-                          }
-                          echo "</select>";
-                          
-                          echo "<select name='endtime'>";
-                          echo "<option value=''>Select</option>";
-                          $end=24;
-                          for($j=13;$j<=$end;$j++)
-                          {
-                           echo "<option value='$j' name='$j'>$j</option>";    
-                          }
-                         echo "</select>";                            
-                        ?>
-                    </td>
-                   
-                </tr>
+
+
                 <tr>
                     <td colspan="2" ><input type="submit" value="Add Screen"></td>
                 </tr>
             </table>
         </form>
     </div> <!--add screens ends--> 
-    
+
 </div> <!--Container Division ends here-->

@@ -1,14 +1,17 @@
-<script type="text/javascript">
-   
-</script>
+
 <?php
-include_once '../config.php';
-$count=0;
-$db=$_POST['dbname'];
-$server_name=$_POST['sername'];
-$username=$_POST['username'];
-$userpass=$_POST['password'];
-$prefix =$_POST['tprefix'];
+ session_start();
+ include_once '../config.php';
+
+ $count=0;
+ 
+ $db=$_POST['dbname'];
+ $server_name=$_POST['sername'];
+ $username=$_POST['username'];
+ $userpass=$_POST['password'];
+ $prefix =$_POST['tprefix'];
+
+
 
 $db_con = mysqli_connect($server_name,$username,$userpass) or die(mysql_error());
 
@@ -31,7 +34,7 @@ $add_multiplex_table = "create table " . $prefix."_add_multiplex(mul_id varchar(
 
 $add_screens_table = "create table " . $prefix."_add_screen(screen_id varchar(6) primary key,screen_no int(2),mul_id varchar(10),screen_strength int(3),balcony_seats int(3),dc_seats int(3),foreign key(mul_id) references ". "$prefix" ."_add_multiplex(mul_id))";
 
-$add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key,screen_id varchar(6),mul_id varchar(10),show_date datetime,show_time datetime,foreign key(mul_id) references " . "$prefix" . "_add_multiplex(mul_id),foreign key(screen_id) references ". "$prefix" ."_add_screen(screen_id))";
+$add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key,movie_name varchar(15),screen_no int(2),mul_name varchar(12),show_date date,show_time time)";
 
 $add_booking_table = "create table " . $prefix."_booking(booking_id int(5),movie_id varchar(5),user_email varchar(30),show_id int(5),screen_id varchar(6),no_of_seats int(2),seat_no int(2),mov_time datetime,foreign key(user_email) references ". "$prefix" ."_register(user_email),foreign key(movie_id) references ". "$prefix" ."_admin_movies(movie_id),foreign key(show_id) references ". "$prefix" ."_add_show(show_id),foreign key(screen_id) references ". "$prefix" ."_add_screen(screen_id))";
 
@@ -109,7 +112,8 @@ if (mysqli_query($db_con,$admin_movies_table))
         {
           echo "Table no 7 cannot be created:" . mysqli_error($db_con)."\n"; 
        }
-      
+       if($count == 7)
+       {
        $insert_default_admin_values="insert into " .$prefix."_register values('admin@multiplex.com','1','admin123','topsy','kretts','m','Pune')";      
        $insert_admin_query=  mysqli_query($db_con, $insert_default_admin_values);     
        if($insert_admin_query==true)
@@ -117,13 +121,15 @@ if (mysqli_query($db_con,$admin_movies_table))
           echo "<h3 align='center'>Default Admin Created";
           
          }
+       }
          
          if($count==7)
          {
+           
              Header("Location:$address/login.php");
          }
   
        
-       
+         
 ?>
     
