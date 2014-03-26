@@ -4,7 +4,8 @@ require_once 'config.php';
 echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>";
 ?>
 <meta http-equiv="refresh"  url='index.php' ">
-<div style="height:600px;">
+
+<div id="maindiv" style="height:600px;width: 1324px;margin-right: 20px;min-width: 1024px;">
     <div id="mov_table" align="center" style="">
         <?php
         echo "<img src='$address/images/multiplex_logo.jpg' alt='logo' width='60%' height='20%' >";
@@ -44,3 +45,4 @@ echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>
         </ul>
     </div>
     <br />
+</div>
