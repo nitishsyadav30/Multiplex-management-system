@@ -18,7 +18,7 @@
       for($scr=1;$scr<=$screens_fetched;$scr++)
       {
          
-               echo "<option value='$scr' name=''>$scr</option>";
+               echo "<option value='$scr' name='$scr'>$scr</option>";
       }
     ?>
 </select>

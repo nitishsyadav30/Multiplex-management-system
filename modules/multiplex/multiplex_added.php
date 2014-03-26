@@ -2,7 +2,7 @@
 
 include '../../config.php';
 include BASE_PATH . '/includes/connection_final.php';
-include BASE_PATH . '/header.php';
+include "../../index.php";
 include BASE_PATH . '/modules/movies/admin_MenuOptions.php';
 $mul_id = $_POST['mul_id'];
 $mul_name = $_POST['mul_name'];
@@ -18,14 +18,13 @@ $insert_result = mysqli_query($con, $insert_sql);
 if ($insert_result == TRUE) {
     
     echo '<script>alert("You Have Successfully added a multiplex ");</script>';
+    
     ?>
-   <!-- <script>
-  setTimeout(function(){
-  window.location = "../../index.php";
-}, 50);
-</script>-->
+   
     <?php
 } else {
-    echo "Error:" . mysql_error();
+    echo "Error:" . mysqli_error($con);
+    Header("Location:$string/adminHome.php");
+    
 }
 ?>

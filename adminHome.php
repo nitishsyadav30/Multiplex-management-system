@@ -1,5 +1,5 @@
 <?php
-require_once './config.php';
+require './config.php';
 
 include './includes/connection_final.php';
 include './header.php';
@@ -24,7 +24,10 @@ include './header.php';
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script>
     $(function() {
-        $("#date").datepicker();
+        $("#date").datepicker({
+             minDate: 0,
+             dateFormat: 'yy-mm-dd'
+        });
     });
 </script>
 <script type="text/javascript"> // 
@@ -426,7 +429,7 @@ include './modules/movies/admin_MenuOptions.php';
 
 
     <div id="addShow" style="display: none;"> <!-- Add Shows -->
-        <form method="post" action="">
+        <form method="post" action="modules/shows/show_added.php">
             <table>
                 <tr>
                     <th colspan="2"><center>Add a show!!</center></th>
@@ -443,7 +446,7 @@ include './modules/movies/admin_MenuOptions.php';
                                 $mid = $row_selected['movie_id'];
 
                                 $movie = $row_selected['movie_name'];
-                                echo "<option id='moption' name='$mid' value='$mid'>$movie</option>";
+                                echo "<option id='moption' name='$movie' value='$movie'>$movie</option>";
                             }
                             ?>
                         </select>
@@ -452,7 +455,7 @@ include './modules/movies/admin_MenuOptions.php';
                 <tr>
                     <td>Select Multiplex</td>
                     <td>
-                        <select id="multiplexselected">
+                        <select id="multiplexselected" name="multiplexselected">
                             <option value="null" name="null"> Click </option>
                             <?php
                             $select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
@@ -494,11 +497,11 @@ include './modules/movies/admin_MenuOptions.php';
                         <select name="showdate">
                             <option>Select Date</option>
                             <?php 
-                               echo "<option name='date'>".date("d/m/y",$frommktime1)."</option>";
-                               echo "<option name='date'>".date("d/m/y",$frommktime2)."</option>";
-                               echo "<option name='date'>".date("d/m/y",$frommktime3)."</option>";
-                               echo "<option name='date'>".date("d/m/y",$frommktime4)."</option>";
-                               echo "<option name='date'>".date("d/m/y",$frommktime5)."</option>";
+                               echo "<option name='date'>".date("Y-m-d",$frommktime1)."</option>";
+                               echo "<option name='date'>".date("Y-m-d",$frommktime2)."</option>";
+                               echo "<option name='date'>".date("Y-m-d",$frommktime3)."</option>";
+                               echo "<option name='date'>".date("Y-m-d",$frommktime4)."</option>";
+                               echo "<option name='date'>".date("Y-m-d",$frommktime5)."</option>";
                                
                             ?>
                         </select>
@@ -510,13 +513,15 @@ include './modules/movies/admin_MenuOptions.php';
                         <select name="time_selected">
                             <option value="">Timings</option>
                             <?php
-                            $getshow = "select * from multiplex_showtime";
+                            $getshow = "select * from multiplex_screen_timeslots";
                             $getshow_query = mysqli_query($con, $getshow);
+                            $time_id=1;
                             while ($row_getshow = mysqli_fetch_array($getshow_query)) {
-                                $time_id = $row_getshow['time_id'];
-                                $timings = $row_getshow['timings'];
+                              
+                                 $timings = $row_getshow['timeslot'];
 
-                                echo "<option name='$time_id' value='$time_id'>$timings</option>";
+                                echo "<option name='$timings' value='$timings'>$timings</option>";
+                                $time_id++;
                             }
                             ?>
                         </select>

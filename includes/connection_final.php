@@ -1,5 +1,7 @@
 <?php
- $con = mysqli_connect("localhost", "multiplex", "multiplex123") or die(mysql_error);
+
+
+$con = mysqli_connect("localhost", "multiplex", "multiplex123") or die(mysql_error);
 if (!$con) {
     die('Could not connect: ' . mysql_error());
 }
