@@ -3,7 +3,7 @@
 require_once 'config.php';
 require_once  'header.php';
 ?>
-   <link rel='stylesheet' type='text/css' href= "http://localhost/Multiplex_System/css/dropdown.css">
+   <link rel='stylesheet' type='text/css' href= "http://localhost/Multiplex_System/css">
     <div id="dropdown">
         <select name="dbmovie" id="dbmovie" tabindex="1">
 			<option value="">-- Select Movie --</option>

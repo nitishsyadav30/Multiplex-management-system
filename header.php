@@ -12,7 +12,7 @@ echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>
     </div>
 
     <br />
-    <div id="menu" class="menu" align="center" style="margin-left: auto; background-color:#2f4f4f; ">
+    <div id="menu" class="menu" align="center" style=" background-color:#2f4f4f; ">
         <ul id="bar" class="bar">
             <?php
             echo "<li><a id='item'class='item' href='$address/index.php'>Home</a></li>";
