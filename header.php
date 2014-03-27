@@ -3,7 +3,7 @@ session_start();
 require_once 'config.php';
 echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>";
 ?>
-<meta http-equiv="refresh"  url='index.php' ">
+
 
 <div id="maindiv" style="width: auto;min-width: 1024px;">
     <div id="mov_table" align="center" style="">
@@ -17,7 +17,7 @@ echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>
         <ul id="bar" class="bar">
             <?php
             echo "<li><a id='item'class='item' href='$address/index.php'>Home</a></li>";
-            echo "<li><a id='item' href=''>Book Tickets</a></li>";
+           
             
 
             if (isset($_SESSION['CurrentUser'])) {

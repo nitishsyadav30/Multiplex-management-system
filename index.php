@@ -1,56 +1,47 @@
-<div id="indexdiv">
 <?php
-require_once 'config.php';
-require_once  'header.php';
-?>
-   <link rel='stylesheet' type='text/css' href= "http://localhost/Multiplex_System/css/dropdown.css">
-   <div id="dropdown" style="float: left;">
-        <select name="dbmovie" id="dbmovie" tabindex="1">
-			<option value="">-- Select Movie --</option>
-                        
-			<optgroup label="Hindi">
-				<?php
-                                 include './includes/connection_final.php';
-                                  $gethindimovies="select movie_name from multiplex_admin_movies where language like 'hindi' ";
-                                  $gethmovie=mysqli_query($con, $gethindimovies);
-                                  while($row_movie= mysqli_fetch_array($gethmovie))
-                                    {
-                                      $fetchedmovie=$row_movie['movie_name'];
-                                      echo "<option value='$fetchedmovie' name='$fetchedmovie'>$fetchedmovie</option>";
-                                    }
-                                ?>
-			</optgroup>
-			<optgroup label="English">
-				<?php
-                                  $getengmovies="select movie_name from multiplex_admin_movies where language like 'eng' ";
-                                  $getemovie=mysqli_query($con,$getengmovies);
-                                  while($row_emovie= mysqli_fetch_array($getemovie))
-                                    {
-                                      $fetchedemovie=$row_emovie['movie_name'];
-                                      echo "<option value='$fetchedmovie' name='$fetchedemovie'>$fetchedemovie</option>";
-                                    }
-                                ?>
-			</optgroup>
-			<optgroup label="Others" >
-				<?php
-                                  $getothersmovies="select movie_name from multiplex_admin_movies where language like 'others' ";
-                                  $getothersmovie=mysqli_query($con,$getothersmovies);
-                                  while($row_othersmovie= mysqli_fetch_array($getothersmovie))
-                                    {
-                                      $fetchedomovie=$row_othersmovie['movie_name'];
-                                      echo "<option value='$fetchodmovie' name='$fetchedomovie'>$fetchedomovie</option>";
-                                    }
-                                ?>
-			</optgroup>
-			
-		</select>
+    include 'config.php';
+   include 'header.php';
+    include './includes/connection_final.php';
+    ?>
+
+<div id="indexdiv">
+    
+    <link rel='stylesheet' type='text/css' href= "http://localhost/Multiplex_System/css/dropdown.css">
+    <div id="dropdown" style="float: left;">
+        <form action="./modules/booking/booking_process.php" method="post">
+        <table>
+        <tr><td>
+        <select name="dbmovie" id="dbmovie">
+            <option value="">-- Select Movie --</option>
+
+
+            <?php
+             
+            $gethindimovies = "select movie_name from multiplex_admin_movies ";
+            $gethmovie = mysqli_query($con, $gethindimovies);
+            while ($row_movie = mysqli_fetch_array($gethmovie)) {
+                $fetchedmovie = $row_movie['movie_name'];
+                echo "<option value='$fetchedmovie' name='$fetchedmovie'>$fetchedmovie</option>";
+            }
+            ?>
+
+
+        </select ></td></tr>
+        <tr> <td> <select name="date" id="dbmovie">
+            <?php
+            $frommktime1 = mktime(0, 0, 0, date("m"), date("d") + 1, date("y"));
+            $frommktime2 = mktime(0, 0, 0, date("m"), date("d") + 2, date("y"));
+            $frommktime3 = mktime(0, 0, 0, date("m"), date("d") + 3, date("y"));
+            echo "<option>Select Date</option>";
+
+            echo "<option name='date'>" . date("Y-m-d", $frommktime1) . "</option>";
+            echo "<option name='date'>" . date("Y-m-d", $frommktime2) . "</option>";
+            echo "<option name='date'>" . date("Y-m-d", $frommktime3) . "</option>";
+            ?>
+        </select><td> </tr>
+        <tr><td><input type="submit"></td></tr>
+        </table>
+        </form>
     </div>
-   <link rel='stylesheet' type='text/css' href= '$string/css/showmovies.css'>
-   <div id="showmovies">
-       <div>
-           <table border="1">
-               <tr></tr>
-           </table>
-       </div>
-   </div>
+
 </div>
