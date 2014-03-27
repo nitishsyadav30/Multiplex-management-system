@@ -136,7 +136,7 @@ if (mysqli_query($db_con,$admin_movies_table))
          for($i=0;$i<5;$i++)
          {
          
-            $idate=$date->format('H:i:s');
+           $idate=$date->format('H:i:s');
          $insert_timeslots="insert into " .$prefix."_screen_timeslots values('$idate')";
          $insert_timeslots_query=  mysqli_query($db_con, $insert_timeslots);
          if($insert_timeslots_query == false)

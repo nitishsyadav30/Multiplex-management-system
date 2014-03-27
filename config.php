@@ -27,7 +27,7 @@ $string= BASE_PATH;
         define ('main',$address . '/');
         
     }
-  
+  /*
     function movieImgAddress($imgLocation)
     {
         global $user, $public_replace_string, $localhost_replace_string;
@@ -42,4 +42,6 @@ $string= BASE_PATH;
             
         }
     }
+   * 
+   */
 ?>

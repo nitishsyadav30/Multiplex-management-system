@@ -5,7 +5,7 @@ echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>
 ?>
 <meta http-equiv="refresh"  url='index.php' ">
 
-<div id="maindiv" style="height:600px;width: 1324px;margin-right: 20px;min-width: 1024px;">
+<div id="maindiv" style="width: auto;min-width: 1024px;">
     <div id="mov_table" align="center" style="">
         <?php
         echo "<img src='$address/images/multiplex_logo.jpg' alt='logo' width='60%' height='20%' >";
@@ -18,7 +18,7 @@ echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>
             <?php
             echo "<li><a id='item'class='item' href='$address/index.php'>Home</a></li>";
             echo "<li><a id='item' href=''>Book Tickets</a></li>";
-            echo "<li><a id='item' href=''>Events</a></li>";
+            
 
             if (isset($_SESSION['CurrentUser'])) {
 
@@ -39,7 +39,7 @@ echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>
             } else {
                 echo "<div><li><a id='itemlogin' class='loginclass' href= '$address/login.php'>Login</a></li></div>";
                 echo "<li><a id='item' href='$address/registration.php'>New User?</a></li>";
-                echo "<font style='font-style: inherit; font-size:24;color:white;'>Welcome Guest</font>";
+                echo "<li><font style='font-style: inherit; font-size:24;color:white;'>Welcome Guest</font></li>";
             }
             ?>
         </ul>

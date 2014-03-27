@@ -18,7 +18,7 @@
         echo "<table>";
         echo "<tr>";
         echo "<td>Multiplex Id:</td>";
-        echo "<td><input type='text' value='$id' name=''></td>";
+        echo "<td><input type='text' value='$id' name='mid'></td>";
         echo "</tr>";
         echo "<tr>";
         echo "<td>Multiplex name:</td>";
