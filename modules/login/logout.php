@@ -3,25 +3,21 @@
     <title>
         Logout
     </title>
-   
-  
-  <?php
-    
-  require_once '../../config.php';
- 
-  ?>
 </head>
    
 <body>
        <?php
+           require_once '../../config.php';
 
           session_start();
         //$_SESSION['valid_id']="un";
-          session_destroy();
-        require_once '../../config.php';
-        
-        include BASE_PATH.'/index.php';
+         
+        if(session_destroy())
+        {
+        Header("Location:../../index.php");
+        }
        ?>
+    <br />
         <div align="center" class="centerdiv" style="width: 1000px; ">
         <h2>You have been Logged Out..!!!</h2>
           

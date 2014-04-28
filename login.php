@@ -1,4 +1,7 @@
-<?php include_once './header.php';?>
+<?php
+ 
+ include_once '/header.php';
+ ?>
 <html>
     <head>
         <title>Login Here!!</title>

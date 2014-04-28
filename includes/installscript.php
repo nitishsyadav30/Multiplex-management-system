@@ -11,8 +11,9 @@
  $userpass=$_POST['password'];
  $prefix =$_POST['tprefix'];
 
- $con_file=fopen($string.'/connectionvariables.txt','w');
- fwrite($file,"$db,$server_name,$username,$userpass,$prefix");
+ $createconnectionfile=fopen('variables.php','w');
+ fwrite($create_file, $db);
+ 
 
 $db_con = mysqli_connect($server_name,$username,$userpass) or die(mysql_error());
 

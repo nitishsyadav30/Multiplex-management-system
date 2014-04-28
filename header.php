@@ -5,7 +5,7 @@ echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>
 ?>
 
 
-<div id="maindiv" style="width: auto;min-width: 1024px;">
+<div id="maindiv" style="">
     <div id="mov_table" align="center" style="">
         <?php
         echo "<img src='$address/images/multiplex_logo.jpg' alt='logo' width='60%' height='20%' >";
@@ -25,22 +25,27 @@ echo "<link rel='stylesheet' type='text/css' href= '$address/css/headercss.css'>
                 if ($_SESSION['user_role'] == "1") {
 
                     $wayto = "localhost://Multiplex_System/";
+                    echo "<li><a id='item' href='$address/.php'>About Us</a></li>";
                     echo "<li><a id='item' href='$address/adminHome.php'>Admin Options</a></li>";
                     echo "<li><a id='item' href='$address/modules/login/logout.php' onclick='testfunction()'>Logout</a></li>";
                     echo '<li>';
                     echo "<font style='font-style: inherit; font-size:24; color:white;'>" . "Welcome " . ucfirst($_SESSION['fname']) . "\n" . ucfirst($_SESSION['lname']) . "</font>";
                     echo '</li>';
                 } else {
+                    echo "<li><a id='item' href='$address/.php'>About Us</a></li>";
                     echo "<li><a id='item' href='$address/modules/login/logout.php'>Logout</a></li>";
                     echo "<li >";
                     echo "<font style='font-style: inherit; font-size:24;color:white;'>" . "Welcome " . ucfirst($_SESSION['fname']) . "\n" . ucfirst($_SESSION['lname']) . "</font>";
                     echo '</li>';
                 }
+                
             } else {
+                echo "<li><a id='item' href='$address/.php'>About Us</a></li>";
                 echo "<div><li><a id='itemlogin' class='loginclass' href= '$address/login.php'>Login</a></li></div>";
                 echo "<li><a id='item' href='$address/registration.php'>New User?</a></li>";
                 echo "<li><font style='font-style: inherit; font-size:24;color:white;'>Welcome Guest</font></li>";
             }
+            
             ?>
         </ul>
     </div>

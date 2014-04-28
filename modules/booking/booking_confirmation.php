@@ -1,5 +1,6 @@
 <?php
  session_start();
+ include_once '../../header.php';
  
 $getmoviebooked=$_POST['bookt'];
 $usermail=$_SESSION['CurrentUser'];

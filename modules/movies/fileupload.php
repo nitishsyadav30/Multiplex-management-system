@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
     $location = '../../images/';
     $extension = end($temp);
     
+    
     if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/png")) )
                     {
 
@@ -24,7 +25,7 @@ if (isset($_POST['submit'])) {
                 echo $_FILES['file']['name'] . "already exist";
             } else {
                 move_uploaded_file($_FILES['file']['tmp_name'], $location . $_FILES['file']['name']);
-                echo "Stored in Upload/" . $_FILES['file']['name'];
+                //echo "Stored in Upload/" . $_FILES['file']['name'];
             }
         }
     } else {

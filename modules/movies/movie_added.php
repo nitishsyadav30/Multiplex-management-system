@@ -6,7 +6,8 @@ include BASE_PATH . '/modules/movies/admin_MenuOptions.php';
 include './fileupload.php';
 $movie_id=$_POST['mid'];
 $mname = $_POST['mname'];
-echo $rdate = $_POST['rdate'];
+
+ $rdate = $_POST['rdate'];
 $lang = $_POST['lang'];
 $genre = $_POST['genre'];
 $director = $_POST['director'];

@@ -1,5 +1,18 @@
 <?php
+$file=fopen('variables.php','r');
+$db="";
+while(!feof($file))
+    {
+     $db.=fgetc($file);
+    }
+    echo "$db";
+/*
+$db="jkvbj";
+$createconnectionfile=fopen('variables.php','w');
+ fwrite($createconnectionfile, $db);
  
+ 
+ /*
  $file=fopen('demo.txt','r');
  $string="";
  $darray=array();
