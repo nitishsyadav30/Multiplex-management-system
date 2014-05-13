@@ -1,14 +1,14 @@
 <?php
     include 'config.php';
    include 'header.php';
-    include './includes/connection_final.php';
+    include BASE_PATH .'/includes/connection_final.php';
     ?>
 
 <div id="indexdiv">
     
     <link rel='stylesheet' type='text/css' href= "http://localhost/Multiplex_System/css/dropdown.css">
     <div id="dropdown" style="float: left;">
-        <form action="./modules/booking/booking_process.php" method="post">
+      <?php echo "<form action= '$address/modules/booking/booking_process.php' method='post'>"; ?>
             <table >
         <tr><td>
         <select name="dbmovie" id="dbmovie">

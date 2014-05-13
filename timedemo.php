@@ -1,39 +1,13 @@
-<?php
-$file=fopen('variables.php','r');
-$db="";
-while(!feof($file))
-    {
-     $db.=fgetc($file);
-    }
-    echo "$db";
-/*
-$db="jkvbj";
-$createconnectionfile=fopen('variables.php','w');
- fwrite($createconnectionfile, $db);
- 
- 
- /*
- $file=fopen('demo.txt','r');
- $string="";
- $darray=array();
- while(!feof($file))
+<?php 
+include_once './includes/connection_final.php';
+$prefix="multiplex";
+$contact_table="create table ".$prefix."_contactus(emailid varchar(100),phone1 bigint(20),phone2 bigint(20))";
+
+if(mysqli_query($con, $contact_table))
    {
-     print_r(fgetcsv($file));
-     $darray=fgetcsv($file);
-     
+    echo "done";
    }
-  
- fclose($file);
- 
-  /*
-$db="multiplex_management";
- $server_name="localhost";
- $username="multiplex";
- $userpass="multiplex123";
- $prefix ="multiplex"; 
-
-$con_file=fopen('./connectionvariables.txt','w');
- fwrite($con_file,"$db,$server_name,$username,$userpass,$prefix");*/
-
-
- ?>
+   else
+       {
+        die(mysqli_errno($con));
+       }

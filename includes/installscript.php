@@ -11,8 +11,10 @@
  $userpass=$_POST['password'];
  $prefix =$_POST['tprefix'];
 
- $createconnectionfile=fopen('variables.php','w');
- fwrite($create_file, $db);
+ $array=array($db,$server_name,$username,$userpass,$prefix);
+ $variables=  implode(",", $array);
+ $create_file=fopen('variables.php','w');
+ fwrite($create_file,$variables) or die("Error Writing variables to File");
  
 
 $db_con = mysqli_connect($server_name,$username,$userpass) or die(mysql_error());
@@ -36,9 +38,9 @@ $add_multiplex_table = "create table " . $prefix."_add_multiplex(mul_id varchar(
 
 $add_screens_table = "create table " . $prefix."_add_screen(screen_id varchar(6) primary key,screen_no int(2),mul_id varchar(10),screen_strength int(3),balcony_seats int(3),dc_seats int(3),foreign key(mul_id) references ". "$prefix" ."_add_multiplex(mul_id))";
 
-$add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key,movie_name varchar(15),screen_no int(2),mul_name varchar(12),show_date date,show_time time)";
+$add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key,movie_name varchar(15),screen_no int(2),mul_name varchar(12),show_date date,show_time time,balcony_price int(4),dc_price int(4))";
 
-$add_booking_table = "create table " . $prefix."_booking(booking_id int(5),movie_id varchar(5),user_email varchar(30),show_id int(5),screen_id varchar(6),no_of_seats int(2),seat_no int(2),mov_time datetime,foreign key(user_email) references ". "$prefix" ."_register(user_email),foreign key(movie_id) references ". "$prefix" ."_admin_movies(movie_id),foreign key(show_id) references ". "$prefix" ."_add_show(show_id),foreign key(screen_id) references ". "$prefix" ."_add_screen(screen_id))";
+$add_booking_table = "create table " . $prefix."_booking(booking_id int(5) not null primary key AUTO_INCREMENT ,movie_name varchar(30),mul_name varchar(20),user_email varchar(30),no_of_seats int(2),mov_time time,mov_date date,total_price int(10),foreign key(user_email) references ". "$prefix" ."_register(user_email))";
 
 $add_screen_timeslots="create table ".$prefix."_screen_timeslots(timeslot time)";
 
@@ -144,7 +146,7 @@ if (mysqli_query($db_con,$admin_movies_table))
              {
              mysqli_error($db_con);
              }
-         else { echo  "hello"; }
+         else { echo  ""; }
              $date->add(new DateInterval('PT3H'));
             
              

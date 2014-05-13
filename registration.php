@@ -2,6 +2,27 @@
     <head>
         <title>Register Here!!</title>
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+        <script type="text/javascript">
+            function checkPassword()
+            {
+                var pass=document.getElementById("pass").value;
+                var cpass=document.getElementById("cpass").value;
+                if(pass==null)
+                {
+                    alert("Enter password First");
+                }
+                if(cpass==null)
+                {
+                    alert("Enter confirm password ");
+                }
+                if(pass==cpass)
+                {}
+                else
+                {
+                    alert("Passwords Dont Match");
+                }
+            }
+        </script>
     </head>
      
     <body>
@@ -23,13 +44,13 @@
 
                         <tr>
                             <td>Password</td>
-                            <td><input type="password" class="input" name="pass" /></td>
+                            <td><input type="password" class="input" name="pass" id="pass"/></td>
                             <td></td>
                         </tr>
 
                         <tr>
                             <td>Confirm Password</td>
-                            <td><input type="password" class="input" name="cpass" /></td>
+                            <td><input type="password" class="input" name="cpass" id="cpass"  /></td>
                             <td></td>
                         </tr>
 
@@ -47,8 +68,8 @@
 
                         <tr>
                             <td>Gender</td>
-                            <td><input type="radio" name="gender" id="gender" value="m"/>Male
-                                <input type="radio" name="gender" id="gender" value="f"  />Female</td>
+                            <td><input type="radio" name="gender" id="gender" value="Male"/>Male
+                                <input type="radio" name="gender" id="gender" value="Female"  />Female</td>
 
                             <td></td>
                         </tr>
@@ -57,10 +78,10 @@
                             <td>City</td>
                             <td><select name="city" style="width:150px;">
                                     <option selected="selected">Select City</option>
-                                    <option value="mumbai">Mumbai</option>
-                                    <option value="pune">Pune</option>
-                                    <option value="delhi">Delhi</option>
-                                    <option value="bangalore">Bangalore</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Pune">Pune</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Bangalore">Bangalore</option>
                                     <select/></td>
                             <td></td>
                         </tr>

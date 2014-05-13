@@ -2,8 +2,8 @@
 
 include '../../config.php';
 include BASE_PATH . '/includes/connection_final.php';
-include "../../index.php";
-include BASE_PATH . '/modules/movies/admin_MenuOptions.php';
+
+include BASE_PATH . '/header.php';
 $mul_id = $_POST['mul_id'];
 $mul_name = $_POST['mul_name'];
 $mul_city = $_POST['mul_city'];

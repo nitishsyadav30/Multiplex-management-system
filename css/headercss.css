@@ -1,8 +1,8 @@
 #maindiv
 {
-    width: 1360px;
-    height: 500px;
-    width: auto;min-width: 1024px;
+    width: auto;
+    min-width: 1024px;
+    float: left;
 }
 #logincode
     {
@@ -29,6 +29,7 @@
 	height:5%;
        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.35);
        min-width: 1024px;
+       width: 1217px;
      }
 
     #bar
@@ -87,6 +88,7 @@
 #ulabout
 {
     list-style-type: none;
+    
 }
 #liabout
 {
@@ -99,6 +101,7 @@
       padding: 10px;
       color: #008b8b;
       width:15%;
+      margin-left: -54px;
 }
 #aboutedit li { background:#2f4f4f; }
 
@@ -106,6 +109,7 @@
 
 #aboutcontainer
 {
+        margin-top:200px;
         padding: 20px;
 	width:450px;
 	height: 400px;

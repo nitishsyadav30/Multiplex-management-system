@@ -4,7 +4,8 @@ session_start();
 
 /* @var $_POST type */
 $email = $_POST['email'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
+
 
 require_once '../../config.php';
 require_once BASE_PATH . '/includes/connection_final.php';
@@ -22,7 +23,7 @@ while ($row_result = mysqli_fetch_array($queryresult)) {
         $_SESSION['CurrentUser'] = $email;
         $_SESSION['user_role'] = $userole;
         //$_SESSION['id']=$row_result['user_role'];
-        //include BASE_PATH. '/adminHome.php';
+        
         Header("Location: $address/index.php");
     } else if ($row_result['user_email'] == "$email" && $row_result['pass'] == "$password") {
         $_SESSION['fname'] = $row_result['fname'];

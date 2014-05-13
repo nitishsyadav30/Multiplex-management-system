@@ -1,5 +1,6 @@
-<?php
 
+<?php
+ 
  include '../../header.php';
  include_once '../../config.php';
  include_once  '../../includes/connection_final.php';
@@ -31,11 +32,12 @@
              $freviewlink=$info_row['review_link'];
              $storeinfo="";
              $minfos=fopen(BASE_PATH . "/movie_info_files/$fmname.txt","r+");
-             echo "<div >";
-              echo " <div id=''>";
+             echo "<center>";
+             echo "<div id='movieinfodiv'>";
+              echo " <div id='' style=''>";
              echo "<img src='../../images/$fmname.jpg' width='20%' height='35%'>";
              echo "</div>";
-             echo "<div style='float=right'>";
+             echo "<div style='float=left'>";
              
              echo "<table border='1' class='fancy'>";
              echo "<tr>";
@@ -68,6 +70,7 @@
              
              
              echo "</table>";
+             echo "<div>";
              echo "<h4>About the Movie:</h4>";
              echo "<texarea rows='4' col='25'>";
               while(!feof($minfos))
@@ -76,10 +79,11 @@
                    
                  }
                 echo "</textarea>";
-             
+              echo "<div>";
               echo "</div>";
              
              echo "</div>";
+            echo "</center>";
       }
     
       ?>

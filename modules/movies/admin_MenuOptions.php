@@ -64,7 +64,7 @@
 
                 </li>
 
-                <li><a href='#' id="editExMovie"><span>Edit Existing User</span></a>
+                <li><a href='#' id="editExuser"><span>Edit Existing User</span></a>
 
                 </li>
 

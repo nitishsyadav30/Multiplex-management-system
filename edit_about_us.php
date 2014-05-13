@@ -44,18 +44,20 @@
         <li id="liabout"><a href="about_us.php">Preview</a></li>
     </ul>
 </div>
-
+<?php
+  
+?>
 
     <div id="aboutcontainer" style="display:none">
     
     <div style="display:none;" id="editaboutus">
          
-        <form >
+        <form action="" method="post">
             <table>
                 <th>Edit About us</th>
                 <tr><td>
                         <textarea rows="18" cols="50" style="resize: none;">
-                
+                           
                         </textarea>
                         </td>
                 </tr>
