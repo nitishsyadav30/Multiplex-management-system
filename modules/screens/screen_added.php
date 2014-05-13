@@ -2,6 +2,7 @@
   require '../../config.php';
   include '../../header.php';
   include    '../../includes/connection_final.php';
+  include    '../../includes/retrieve_variables.php';
   
  $multiplexid=$_POST['multiplexname'];
  $screenno=$_POST['screenno'];
@@ -20,7 +21,7 @@ while($getmulid_query_row =  mysqli_fetch_array($getmulid_query))
  */
  
    
-$insert_screen = "insert into multiplex_add_screen values('$screenid','$screenno','$multiplexid','$screencap','$balseats','$dcseats')";
+$insert_screen = "insert into ".$prefix."_add_screen values('$screenid','$screenno','$multiplexid','$screencap','$balseats','$dcseats')";
 if(mysqli_query($con, $insert_screen))
 {
     echo "Screen Added";

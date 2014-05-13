@@ -15,7 +15,7 @@ $cast = $_POST['cast'];
 $minfo = $_POST['minfo'];
 $review_link=$_POST['review'];
 
-  $sql="insert into multiplex_admin_movies values('$movie_id','$mname','$rdate','$lang','$genre','$director','$review_link')";
+  $sql="insert into ".$prefix."_admin_movies values('$movie_id','$mname','$rdate','$lang','$genre','$director','$review_link')";
   if (!mysqli_query($con,$sql))
   {
   die('Error: ' . mysqli_error($con));

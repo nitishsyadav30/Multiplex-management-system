@@ -1,8 +1,9 @@
 <?php
 require_once '../../config.php';
    require_once '../../includes/connection_final.php';
+   require_once '../../includes/retrieve_variables.php';
   $mult_name=$_REQUEST['name'];
-  $mult_details_query="select * from multiplex_admin_movies where movie_name like '$mult_name'";
+  $mult_details_query="select * from ".$prefix."_admin_movies where movie_name like '$mult_name'";
   $mult_query_result=  mysqli_query($con, $mult_details_query) or die(mysqli_error($con));
    while($mulqueryrow=  mysqli_fetch_array($mult_query_result))
       {

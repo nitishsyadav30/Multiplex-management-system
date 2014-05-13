@@ -7,7 +7,7 @@
  
   $mname=$_GET['mname'];
  
- $getmovieinfo="select * from multiplex_admin_movies where movie_name like '$mname'";
+ $getmovieinfo="select * from ".$prefix."_admin_movies where movie_name like '$mname'";
  $getmovieinfo_query=  mysqli_query($con, $getmovieinfo) or die(mysqli_error($con));
  
  while($info_row=  mysqli_fetch_array($getmovieinfo_query))

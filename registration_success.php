@@ -28,7 +28,7 @@ if ($pass != $cpass)
     else { $epass=  md5($pass);}
         
 
-$sql="INSERT INTO multiplex_register VALUES('$emailId','$user_role','$epass','$fname','$lname','$gender','$city')";
+$sql="INSERT INTO ".$prefix."_register VALUES('$emailId','$user_role','$epass','$fname','$lname','$gender','$city')";
 
 if (!mysqli_query($con,$sql))
 {

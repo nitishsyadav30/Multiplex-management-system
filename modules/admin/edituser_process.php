@@ -1,3 +1,21 @@
+<script type="text/javascript">
+    function myFunction() {
+    var pass1 = document.getElementById("newpass1").value;
+    var pass2 = document.getElementById("newpass2").value;
+    var ok = true;
+    if (pass1 != pass2) {
+        alert("Passwords Do not match");
+        document.getElementById("newpass1").style.borderColor = "#E34234";
+        document.getElementById("newpass2").style.borderColor = "#E34234";
+        ok = false;
+    }
+    else {
+       // alert("Passwords Match!!!");
+        document.getElementById("regForm").submit();
+    }
+    return ok;
+}
+</script> 
 <?php
 
 include_once '../../config.php';
@@ -17,7 +35,7 @@ if ($_REQUEST['editUser'] == "Update")
     } else {
         mysqli_error($con);
     }
-} else {
+} else if($_REQUEST['editUser'] == "Delete") {
     $delete_string = "delete from " . $prefix . "_register where user_email like ''";
     if (mysqli_query($con, $delete_string)) {
 
@@ -28,4 +46,31 @@ if ($_REQUEST['editUser'] == "Update")
         mysqli_error($con);
     }
 }
+else
+    {
+     ?>
+<form action="./changepassword_process.php" method="post" id="regform" >
+    <table>
+        <th>
+        <td colspan="2">Change Password</td>
+        </th>
+        <tr>
+            <td>Type Old Password</td>
+            <td><input type="password" name="oldpass"></td>
+        </tr>
+        <tr>
+            <td>Type New Password</td>
+            <td><input type="password" name="newpass1" id="newpass1"></td>
+        <tr>
+            <td>Confirm New Password</td>
+            <td><input type="password" name="newpass2" id="newpass2"></td>
+        </tr>
+        </tr>
+        <tr>
+            <td><center><input type="submit" value="Change" onclick="return myFunction()"></center></td>
+        </tr>
+    </table>
+</form>
+<?php
+    }
 

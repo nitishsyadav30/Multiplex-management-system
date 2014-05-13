@@ -2,6 +2,7 @@
 
 include '../../config.php';
 include '../../includes/connection_final.php';
+include '../../includes/retrieve_variables.php';
 include '../../header.php';
  $selectedmovie = $_POST['dbmovie'];
  $selecteddate = $_POST['date'];
@@ -21,7 +22,7 @@ echo "<table style='border-spacing: 10px;' class='fancy'>";
     echo "<th>Select Movie</th>";
     echo "</tr>";
 //$showquery = "select * from multiplex_add_show where movie_name like '$selectedmovie' and show_date >= '$selecteddate' and show_date >= 'time()'";
-$showfetched = mysqli_query($con,"select * from multiplex_add_show  where movie_name like '$selectedmovie' and show_date >= '$selecteddate'") or die();
+$showfetched = mysqli_query($con,"select * from ".$prefix."_add_show  where movie_name like '$selectedmovie' and show_date >= '$selecteddate'") or die();
 while($showrow = mysqli_fetch_array($showfetched)) {
     
     $moviename = $showrow['movie_name'];
@@ -32,7 +33,7 @@ while($showrow = mysqli_fetch_array($showfetched)) {
     $balcony_price=$showrow['balcony_price'];
     $dc_price=$showrow['dc_price'];
       
-    $result=mysqli_query($con, "select mul_name from multiplex_add_multiplex where mul_id like '$mulid'");
+    $result=mysqli_query($con, "select mul_name from ".$prefix."_add_multiplex where mul_id like '$mulid'");
     $mul_name="";
     while($row=  mysqli_fetch_array($result))
       {

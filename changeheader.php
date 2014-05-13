@@ -25,6 +25,7 @@ if (isset($_POST['submit'])) {
             if (file_exists("upload/" . $_FILES['file']['name'])) {
                  unlink($location.$_FILES['file']['name']) ;
                   move_uploaded_file($_FILES['file']['tmp_name'],$location.$_FILES["file"]["name"]);
+                  
                  
             } else {
                 move_uploaded_file($_FILES['file']['tmp_name'],$location.$_FILES["file"]["name"]);

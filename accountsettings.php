@@ -69,12 +69,11 @@
                                     <select/></td>";
             echo "</tr>";
             echo "<tr>";
-            echo "<center>";
+           
             echo "<td colspan=''><input type='submit' name='editUser' value='Update'></td>";
             echo "<td><input type='submit' name='editUser' value='Delete'></td>";
+            echo "<td><input type='submit' name='editUser' value='Change Password'></td>";
             echo "</tr>";
-            echo "</center>";
-           
             echo "</table>";
             echo "</form>";
         }

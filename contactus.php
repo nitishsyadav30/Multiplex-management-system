@@ -18,7 +18,8 @@
 
       if ($_SESSION['user_role'] == "1") {
           
-       ?>
+       ?>     
+            <div align="center">
               <center><h3>Contact Us!</h3></center>
               <form action="./editcontactus.php" method="post">
               <table>
@@ -49,10 +50,12 @@
                 </tr>
               </table>
               </form>
+              </div>
 <?php
      }
       else{
           ?>
+             <div align='center'>
               <center><h3>Contact Us!</h3></center>
               <table>
                 <tr>
@@ -72,12 +75,14 @@
                     </tr>
                    
               </table>
+              </div>
      <?php     
       }
   }
   else 
       {
         ?>
+               <div align='center'>
               <center><h3>Contact Us!</h3></center>
               <table>
                 <tr>
@@ -91,12 +96,16 @@
                     <td><?php echo "<input type='text' name='cmum1' value='$cmum1' readonly>"; 
                     ?>
                     </td>
+                    <tr>
+                        <td></td>
                     <td><?php echo "<input type='text' name='cmum2' value='$cmum2' readonly>"; 
                     ?>
                     </td>
                     </tr>
+                    </tr>
                    
               </table>
+              </div>
       <?php
               }
   ?>   

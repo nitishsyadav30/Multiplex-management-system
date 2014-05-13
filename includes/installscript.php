@@ -153,7 +153,11 @@ if (mysqli_query($db_con,$admin_movies_table))
         } 
        
           }
-       
+          if($count==7)
+         {
+           
+              include './header_tables.php';
+         }
          
          if($count==7)
          {

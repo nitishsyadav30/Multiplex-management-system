@@ -321,6 +321,7 @@
     <?php
     require './config.php';
     include './includes/connection_final.php';
+    include './includes/retrieve_variables.php';
     ?>
 
     <div>
@@ -400,7 +401,7 @@
                             <td>Select Movie</td>
                             <td>
                                 <?php
-                                $select_movie = "select movie_name,movie_id from multiplex_admin_movies";
+                                $select_movie = "select movie_name,movie_id from ".$prefix."_admin_movies";
                                 $select_result = mysqli_query($con, $select_movie);
                                 echo "<select id='mselect' onselect=''>";
 
@@ -483,7 +484,7 @@
                         <td>Select Multiplex</td>
                         <td>
                             <?php
-                            $select_multiplex = "select mul_name,mul_id from multiplex_add_multiplex";
+                            $select_multiplex = "select mul_name,mul_id from ".$prefix."_add_multiplex";
                             $select_multiplex_result = mysqli_query($con, $select_multiplex);
                             echo "<select id='mulselect' onselect=''>";
 
@@ -517,7 +518,7 @@
                                 <select name="movie_select">
                                     <option value=""> Click </option>
                                     <?php
-                                    $select_movie_show = "select movie_name,movie_id from multiplex_admin_movies";
+                                    $select_movie_show = "select movie_name,movie_id from ".$prefix."_admin_movies";
                                     $select_result_show = mysqli_query($con, $select_movie_show);
                                     while ($row_selected = mysqli_fetch_array($select_result_show)) {
                                         $mid = $row_selected['movie_id'];
@@ -535,7 +536,7 @@
                                 <select id="multiplexselected" name="multiplexselected">
                                     <option value="null" name="null"> Click </option>
                                     <?php
-                                    $select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
+                                    $select_multiplex_show = "select mul_name,mul_id from ".$prefix."_add_multiplex";
                                     $select_mul_result_show = mysqli_query($con, $select_multiplex_show);
                                     $mult_id = "";
                                     while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
@@ -588,7 +589,7 @@
                                 <select name="time_selected">
                                     <option value="">Timings</option>
 <?php
-$getshow = "select * from multiplex_screen_timeslots";
+$getshow = "select * from ".$prefix."_screen_timeslots";
 $getshow_query = mysqli_query($con, $getshow);
 $time_id = 1;
 while ($row_getshow = mysqli_fetch_array($getshow_query)) {
@@ -721,7 +722,7 @@ while ($row_getshow = mysqli_fetch_array($getshow_query)) {
                                 <select id="addscreenmultiplex" name="multiplexname">
                                     <option value="null">Click to Select</option>
 <?php
-$select_multiplex_show = "select mul_name,mul_id from multiplex_add_multiplex";
+$select_multiplex_show = "select mul_name,mul_id from ".$prefix."_add_multiplex";
 $select_mul_result_show = mysqli_query($con, $select_multiplex_show);
 while ($row_selected = mysqli_fetch_array($select_mul_result_show)) {
     $multi_id = $row_selected['mul_id'];

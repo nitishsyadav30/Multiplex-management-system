@@ -2,6 +2,7 @@
     include 'config.php';
    include 'header.php';
     include BASE_PATH .'/includes/connection_final.php';
+    include BASE_PATH .'/includes/retrieve_variables.php';
     ?>
 
 <div id="indexdiv">
@@ -17,7 +18,7 @@
 
             <?php
              
-            $gethindimovies = "select movie_name from multiplex_admin_movies ";
+            $gethindimovies = "select movie_name from ".$prefix."_admin_movies ";
             $gethmovie = mysqli_query($con, $gethindimovies) or die(mysqli_error($con));
             while ($row_movie = mysqli_fetch_array($gethmovie)) {
                 $fetchedmovie = $row_movie['movie_name'];
@@ -52,7 +53,7 @@
             <?php
           
                     
-                      $getallmovies="select movie_name from multiplex_admin_movies";
+                      $getallmovies="select movie_name from ".$prefix."_admin_movies";
                       $getallmovies_query=  mysqli_query($con, $getallmovies) or die(mysqli_error($con));
                       while($movie_gotrow=  mysqli_fetch_array($getallmovies_query))
                         {
