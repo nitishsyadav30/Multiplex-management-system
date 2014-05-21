@@ -336,7 +336,7 @@
         echo "</div>";
         ?>
 
-        <div id="container" style="display: none;">
+        <div id="container" style="display: none;" align='center'>
 
             <div id="addmovieadmin" style="display: none;"> 
 

@@ -10,7 +10,7 @@ $header_navigationbar="create table ".$prefix."_header_navigation(name varchar(3
 mysqli_query($con, $header_navigationbar);// or die("Error: ". mysqli_error($con));
 
 $insert_into_nav_home="insert into ".$prefix."_header_navigation values('Home','/index.php','item','item')";
-$insert_into_nav_aboutus="insert into ".$prefix."_header_navigation values('Contact Us','/contactus.php','item','item')";
+//$insert_into_nav_aboutus="insert into ".$prefix."_header_navigation values('Contact Us','/contactus.php','item','item')";
 $insert_into_nav_login="insert into ".$prefix."_header_navigation values('Login','/login.php','item','item')";
 $insert_into_nav_admin="insert into ".$prefix."_header_navigation values('Admin Options','/adminHome.php','item','item')";
 $insert_into_nav_newuser="insert into ".$prefix."_header_navigation values('New User?','/registration.php','item','item')";
@@ -19,7 +19,7 @@ $insert_into_nav_logout="insert into ".$prefix."_header_navigation values('Logou
 $insert_into_nav_account="insert into ".$prefix."_header_navigation values('Account Settings','./accountsettings.php','item','item')";
 
 mysqli_query($con, $insert_into_nav_home);
-mysqli_query($con, $insert_into_nav_aboutus);
+//mysqli_query($con, $insert_into_nav_aboutus);
 mysqli_query($con, $insert_into_nav_login);
 mysqli_query($con, $insert_into_nav_admin);
 mysqli_query($con, $insert_into_nav_newuser);
@@ -32,7 +32,10 @@ $contact_table="create table ".$prefix."_contactus(emailid varchar(100),phone1 b
 
 if(mysqli_query($con, $contact_table))
    {
-    
+     ?>
+   <h3 align="center">Installation Complete</h3>
+<a align="center" href="../login.php">Login!!</a>
+    <?php
    }
    else
        {

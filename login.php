@@ -8,7 +8,7 @@
         <style type="text/css">
             #logindiv
             {
-              margin-left: 450px;
+              margin-left: 550px;
             }
         </style>
         <script type="text/javascript">

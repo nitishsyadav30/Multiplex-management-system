@@ -11,6 +11,7 @@
     }
 </style>
 <div>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
     <div>
         <?php
         include_once './config.php';
@@ -18,7 +19,7 @@
         include_once BASE_PATH .'/includes/connection_final.php';
         ?>
     </div>
-    <div>
+    <div id="">
         <?php
         $current_user = $_SESSION['CurrentUser'];
         $account_query = "select * from " . $prefix . "_register where user_email like '$current_user'";
@@ -69,10 +70,11 @@
                                     <select/></td>";
             echo "</tr>";
             echo "<tr>";
-           
-            echo "<td colspan=''><input type='submit' name='editUser' value='Update'></td>";
-            echo "<td><input type='submit' name='editUser' value='Delete'></td>";
-            echo "<td><input type='submit' name='editUser' value='Change Password'></td>";
+            echo "<td><center><input type='submit' name='editUser' value='Update'></center></td>";
+            echo "<td><center><input type='submit' name='editUser' value='Delete'></center></td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td colspan='2'><center><input type='submit' name='editUser' value='Change Password'></center></td>";
             echo "</tr>";
             echo "</table>";
             echo "</form>";

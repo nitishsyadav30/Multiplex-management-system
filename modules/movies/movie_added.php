@@ -1,7 +1,7 @@
 <?php
 include '../../config.php';
 include '../../includes/connection_final.php';
-include BASE_PATH . '/dheader.php';
+include BASE_PATH . '/header.php';
 include BASE_PATH . '/modules/movies/admin_MenuOptions.php';
 //include './fileupload.php';
 $movie_id=$_POST['mid'];

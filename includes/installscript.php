@@ -30,7 +30,7 @@ if (mysqli_query($db_con, $db_create)) {
 
  
 
-$register_table = "create table ".$prefix."_register(user_email varchar(30), user_role int(3),pass varchar(20),fname varchar(10),lname varchar(10),gender varchar(8),city varchar(10),PRIMARY KEY(user_email))";
+$register_table = "create table ".$prefix."_register(user_email varchar(30), user_role int(3),pass varchar(300),fname varchar(10),lname varchar(10),gender varchar(8),city varchar(10),PRIMARY KEY(user_email))";
 
 $admin_movies_table = "create table " . $prefix."_admin_movies(movie_id varchar(5) primary key,movie_name varchar(15),rel_date date,language varchar(10),genre varchar(10),director varchar(10),review_link varchar(30))";
 
@@ -38,7 +38,7 @@ $add_multiplex_table = "create table " . $prefix."_add_multiplex(mul_id varchar(
 
 $add_screens_table = "create table " . $prefix."_add_screen(screen_id varchar(6) primary key,screen_no int(2),mul_id varchar(10),screen_strength int(3),balcony_seats int(3),dc_seats int(3),foreign key(mul_id) references ". "$prefix" ."_add_multiplex(mul_id))";
 
-$add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key,movie_name varchar(15),screen_no int(2),mul_name varchar(12),show_date date,show_time time,balcony_price int(4),dc_price int(4))";
+$add_shows_table = "create table " . $prefix."_add_show(show_id int(5) primary key AUTO_INCREMENT,movie_name varchar(15),screen_no int(2),mul_name varchar(12),show_date date,show_time time,balcony_price int(4),dc_price int(4))";
 
 $add_booking_table = "create table " . $prefix."_booking(booking_id int(5) not null primary key AUTO_INCREMENT ,movie_name varchar(30),mul_name varchar(20),user_email varchar(30),no_of_seats int(2),mov_time time,mov_date date,total_price int(10),foreign key(user_email) references ". "$prefix" ."_register(user_email))";
 
@@ -121,7 +121,14 @@ if (mysqli_query($db_con,$admin_movies_table))
        
        if($count == 7)
        {
-       $insert_default_admin_values="insert into " .$prefix."_register values('admin@multiplex.com','1','admin123','topsy','kretts','m','Pune')";      
+           $user="admin@multiplex.com";
+           $pass=md5("admin123");
+           $user_id="1";
+           $username="topsy";
+           $username1="kretts";
+           $userg="m";
+           $userc="Pune";
+       $insert_default_admin_values="insert into " .$prefix."_register values('$user','$user_id','$pass','$username','$username1','$userg','$userc')";      
        $insert_admin_query=  mysqli_query($db_con, $insert_default_admin_values); 
        
        
@@ -156,13 +163,14 @@ if (mysqli_query($db_con,$admin_movies_table))
           if($count==7)
          {
            
-              include './header_tables.php';
+             // include './header_tables.php';
          }
          
          if($count==7)
          {
-           
-             Header("Location:$address/login.php");
+           ?>
+             <a href="header_tables.php">Continue Installation</a>
+           <?php  
          }
   
        

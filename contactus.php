@@ -19,7 +19,8 @@
       if ($_SESSION['user_role'] == "1") {
           
        ?>     
-            <div align="center">
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<div align="center" id="contactcontainer">
               <center><h3>Contact Us!</h3></center>
               <form action="./editcontactus.php" method="post">
               <table>
